@@ -7,8 +7,10 @@ import MostWanted from "./Components/Body/MostWanted";
 function App() {
   return (
     <>
-      <HeaderStrip />
-      <HeaderLogo />
+      <div style={{ position: "relative", zIndex: 5 }}>
+        <HeaderStrip />
+        <HeaderLogo />
+      </div>
       <HeaderNavigation />
       <HeaderSlider />
       <MostWanted />

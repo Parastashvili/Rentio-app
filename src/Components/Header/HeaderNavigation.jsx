@@ -79,6 +79,14 @@ export default function HeaderNavigation() {
           toggle={setOpen}
           color="#ffffff"
         />
+        <div
+          className="window"
+          style={
+            isOpen
+              ? { transform: "translateX(0px)" }
+              : { transform: "translateX(300px)" }
+          }
+        ></div>
       </Ham>
     </Nav>
   );
@@ -109,6 +117,15 @@ const Ham = styled.div`
   justify-content: end;
   align-items: end;
   padding: 3px;
+  .window {
+    background-color: rgb(57, 62, 70);
+    width: 300px;
+    height: calc(100vh - 178px);
+    position: absolute;
+    top: 178px;
+    right: 0;
+    z-index: 16;
+  }
   @media screen and (min-width: 974px) {
     display: none;
   }

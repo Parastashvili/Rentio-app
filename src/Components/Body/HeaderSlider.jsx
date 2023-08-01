@@ -28,6 +28,7 @@ export default function HeaderSlider() {
 const Slider = styled.div`
   width: 100%;
   height: 500px;
+  margin-bottom: -200px;
   div {
     width: 100%;
     height: 300px;

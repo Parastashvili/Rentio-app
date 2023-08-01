@@ -6,20 +6,22 @@ import slider9 from "../../assets/slider/9.jpg";
 import slider1 from "../../assets/slider/1.jpg";
 import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Card } from "antd";
 import "@splidejs/react-splide/css/sea-green";
 import "./customCss.css";
 export default function MostWanted() {
   const images = [slider1, slider7, slider6, slider9, slider8];
   const index = 5;
+  const { Meta } = Card;
   return (
-    <div>
+    <Outer>
       <Splide
         options={{
           type: "loop",
           focus: "center",
           autoplay: true,
-          fixedWidth: "250px",
-          height: "300px",
+          fixedWidth: "200px",
+          height: "250px",
         }}
       >
         {[...Array(index)].map((_, index) => (
@@ -39,9 +41,14 @@ export default function MostWanted() {
           </SplideSlide>
         ))}
       </Splide>
-    </div>
+    </Outer>
   );
 }
+const Outer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+`;
 const SlideInner = styled.div`
   overflow: hidden;
   display: flex;

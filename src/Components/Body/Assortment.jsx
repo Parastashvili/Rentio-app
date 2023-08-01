@@ -1,14 +1,20 @@
 import React from "react";
 import { styled } from "styled-components";
-import img from "../../assets/products/bargalka.jpg";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import item1 from "../../assets/products/bargalka.jpg";
+import item2 from "../../assets/products/elq.jpg";
+import item3 from "../../assets/products/drujba.jpg";
+import item4 from "../../assets/products/perf.jpg";
+import item5 from "../../assets/products/beton.jpg";
+import item6 from "../../assets/products/satkepn.jpg";
+import item7 from "../../assets/products/dreli.jpg";
 export default function Assortment() {
   return (
     <Outer>
       <p className="section">ინსტრუმენტები</p>
       <CardContainer>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item1})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -20,7 +26,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item2})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -32,7 +38,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item3})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -44,7 +50,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item4})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -56,7 +62,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item5})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -68,7 +74,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item6})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -80,7 +86,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item7})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>
@@ -92,7 +98,7 @@ export default function Assortment() {
           </div>
         </Card>
         <Card>
-          <div className="img" style={{ backgroundImage: `URL(${img})` }} />
+          <div className="img" style={{ backgroundImage: `URL(${item1})` }} />
           <div className="desc">
             <p className="name">პერფერატორი</p>
             <p className="spec">1100 ვატი</p>

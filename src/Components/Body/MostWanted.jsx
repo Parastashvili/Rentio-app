@@ -1,16 +1,18 @@
 import React from "react";
-import slider6 from "../../assets/slider/6.png";
-import slider7 from "../../assets/slider/7.png";
-import slider8 from "../../assets/slider/8.jpg";
-import slider9 from "../../assets/slider/9.jpg";
-import slider1 from "../../assets/slider/1.jpg";
+import item1 from "../../assets/products/bargalka.jpg";
+import item2 from "../../assets/products/elq.jpg";
+import item3 from "../../assets/products/drujba.jpg";
+import item4 from "../../assets/products/perf.jpg";
+import item5 from "../../assets/products/beton.jpg";
+import item6 from "../../assets/products/satkepn.jpg";
+import item7 from "../../assets/products/dreli.jpg";
 import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 export default function MostWanted() {
-  const images = [slider1, slider7, slider6, slider9, slider8];
-  const index = 5;
+  const images = [item1, item2, item3, item4, item5, item6, item7];
+  const index = 7;
   return (
     <Outer>
       <p className="name">ყველაზე მოთხოვნადი</p>
@@ -85,7 +87,8 @@ const SlideInner = styled.div`
       width: 200px;
       height: 120px;
       background-position: center;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       transition: ease 0.2s;
     }
   }

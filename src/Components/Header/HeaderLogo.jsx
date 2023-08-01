@@ -34,7 +34,7 @@ const Logo = styled.div`
   padding: 20px 50px;
   max-width: 1200px;
   margin: auto;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     flex-direction: column;
     gap: 20px;
   }

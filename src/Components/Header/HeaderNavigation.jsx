@@ -117,12 +117,14 @@ const Ham = styled.div`
   justify-content: end;
   align-items: end;
   padding: 3px;
+  position: relative;
   .window {
+    transition: ease-out 0.2s;
     background-color: rgb(57, 62, 70);
     width: 300px;
-    height: calc(100vh - 178px);
+    height: 100%;
     position: absolute;
-    top: 178px;
+    top: 53px;
     right: 0;
     z-index: 16;
   }

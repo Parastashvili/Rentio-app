@@ -86,7 +86,7 @@ const Headmain = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 2px 10px;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 760px) {
       justify-content: center;
     }
     .dropdown {
@@ -107,8 +107,17 @@ const Headmain = styled.div`
     line-height: 24px;
   }
   .promo {
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 760px) {
       display: none;
+    }
+    @media screen and (max-width: 969px) {
+      font-size: 10px;
+    }
+    @media screen and (max-width: 864px) {
+      font-size: 9px;
+    }
+    @media screen and (max-width: 812px) {
+      font-size: 8px;
     }
   }
 `;

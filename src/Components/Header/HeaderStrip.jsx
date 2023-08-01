@@ -86,20 +86,23 @@ const Headmain = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 2px 10px;
+    @media screen and (max-width: 500px) {
+      justify-content: center;
+    }
     .dropdown {
       min-width: 300px;
     }
     div {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      justify-content: center;
+      gap: 0px;
     }
   }
   .headertext {
     color: #ffffff;
     font-family: "Noto Sans Georgian", sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 24px;
   }

@@ -24,7 +24,7 @@ export default function HeaderNavigation() {
       type,
     };
   }
-  const items2 = [
+  const ham = [
     getItem("მთავარი", "sub1", <RollbackOutlined />),
     getItem("ინსტრუმენტები", "sub2", <ToolOutlined />, [
       getItem("დრელი", "5"),
@@ -48,7 +48,7 @@ export default function HeaderNavigation() {
     getItem("პირობები", "sub7", <AuditOutlined />),
     getItem("კონტაქტი", "sub8", <ContactsOutlined />),
   ];
-  const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
+  const rootSubmenuKeys = ["sub2", "sub4", "sub5"];
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -152,7 +152,7 @@ export default function HeaderNavigation() {
               color: "#ffffff",
               fontFamily: "Noto Sans Georgian",
             }}
-            items={items2}
+            items={ham}
           />
         </div>
       </Ham>

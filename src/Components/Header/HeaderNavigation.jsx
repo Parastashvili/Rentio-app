@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { Turn as Hamburger } from "hamburger-react";
-import { Button, Drawer } from "antd";
+import { Drawer } from "antd";
 import { useState } from "react";
 import {
   ToolOutlined,
@@ -133,7 +133,7 @@ export default function HeaderNavigation() {
         </a>
       </div>
       <Drawer
-        title="Basic Drawer"
+        title="ნავიგაცია"
         placement="right"
         onClose={onClose}
         open={open}

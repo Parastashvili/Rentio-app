@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import logo from "../../assets/black.png";
 import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Input } from "antd";
+import { Divider } from "antd";
 export default function HeaderLogo() {
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
@@ -17,8 +18,10 @@ export default function HeaderLogo() {
           style={{
             width: 200,
           }}
-        />
+        />{" "}
+        <Divider type="vertical" />
         <UserOutlined />
+        <Divider type="vertical" />
         <ShoppingCartOutlined />
       </div>
     </Logo>
@@ -38,7 +41,7 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 5px;
     svg {
       transition: ease 0.3s;
       scale: 1.3;

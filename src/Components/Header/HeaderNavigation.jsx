@@ -4,7 +4,60 @@ import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { Turn as Hamburger } from "hamburger-react";
 import { useState } from "react";
+import {
+  ToolOutlined,
+  HomeOutlined,
+  RollbackOutlined,
+  CarOutlined,
+  ContactsOutlined,
+  AuditOutlined,
+  SmileOutlined,
+} from "@ant-design/icons";
+import { Menu } from "antd";
 export default function HeaderNavigation() {
+  function getItem(label, key, icon, children, type) {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type,
+    };
+  }
+  const items2 = [
+    getItem("მთავარი", "sub1", <RollbackOutlined />),
+    getItem("ინსტრუმენტები", "sub2", <ToolOutlined />, [
+      getItem("დრელი", "5"),
+      getItem("ჩაქუჩი", "6"),
+      getItem("ურო", "sub3", null, [
+        getItem("წერაქვი", "7"),
+        getItem("ბარი", "8"),
+      ]),
+    ]),
+    getItem("სახლი და ეზო", "sub4", <HomeOutlined />, [
+      getItem("ხე", "9"),
+      getItem("ბუჩქი", "10"),
+      getItem("მინდორი", "11"),
+      getItem("ფანტანი", "12"),
+    ]),
+    getItem("ავტო ტექნიკა", "sub5", <CarOutlined />, [
+      getItem("ამწე მანიპულატორი", "13"),
+      getItem("თვითმცლელი", "14"),
+    ]),
+    getItem("ჩვენს შესახებ", "sub6", <SmileOutlined />),
+    getItem("პირობები", "sub7", <AuditOutlined />),
+    getItem("კონტაქტი", "sub8", <ContactsOutlined />),
+  ];
+  const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
+  const [openKeys, setOpenKeys] = useState(["sub1"]);
+  const onOpenChange = (keys) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  };
   const [isOpen, setOpen] = useState(false);
   const items = [
     {
@@ -86,7 +139,22 @@ export default function HeaderNavigation() {
               ? { transform: "translateX(0px)" }
               : { transform: "translateX(300px)" }
           }
-        ></div>
+        >
+          <Menu
+            mode="inline"
+            openKeys={openKeys}
+            onOpenChange={onOpenChange}
+            style={{
+              width: 256,
+              margin: "auto",
+              marginTop: "20px",
+              backgroundColor: "transparent",
+              color: "#ffffff",
+              fontFamily: "Noto Sans Georgian",
+            }}
+            items={items2}
+          />
+        </div>
       </Ham>
     </Nav>
   );
@@ -122,7 +190,7 @@ const Ham = styled.div`
     transition: ease-out 0.2s;
     background-color: rgb(57, 62, 70);
     width: 300px;
-    height: 100%;
+    height: 600px;
     position: absolute;
     top: 53px;
     right: 0;

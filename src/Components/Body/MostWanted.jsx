@@ -26,12 +26,21 @@ export default function MostWanted() {
         {[...Array(index)].map((_, index) => (
           <SplideSlide key={index}>
             <SlideInner>
-              <div
-                className="img"
-                style={{
-                  backgroundImage: `url(${images[index]})`,
-                }}
-              />
+              <div className="imgOut">
+                <div
+                  className="img"
+                  style={{
+                    backgroundImage: `url(${images[index]})`,
+                  }}
+                />
+              </div>
+              <Dsc>
+                <p className="itemName">კუთხსახეხი</p>
+                <p className="itemDsc">1000W</p>
+                <div className="pricecont">
+                  <p className="itemPrice">ფასი: 6₾ დან - 24₾ მდე</p>
+                </div>
+              </Dsc>
             </SlideInner>
           </SplideSlide>
         ))}
@@ -58,15 +67,67 @@ const SlideInner = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 0px;
+  cursor: pointer;
+  &:hover {
+    .img {
+      scale: 1.1;
+    }
+  }
   div {
     width: 200px;
     display: flex;
     align-items: center;
   }
-  .img {
-    width: 200px;
+  .imgOut {
     height: 120px;
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
+    .img {
+      width: 200px;
+      height: 120px;
+      background-position: center;
+      background-size: cover;
+      transition: ease 0.2s;
+    }
+  }
+`;
+const Dsc = styled.div`
+  display: flex;
+  align-items: start !important;
+  justify-content: start !important;
+  flex-direction: column;
+  .itemName {
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 5px 10px;
+    width: 100px;
+    height: 10px;
+  }
+  .itemDsc {
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 5px 10px;
+    width: 100px;
+    height: 50px;
+  }
+  .pricecont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #febd18;
+    .itemPrice {
+      color: #000000;
+      font-family: "Noto Sans Georgian", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 24px;
+      padding: 5px 10px;
+      height: 24px;
+    }
   }
 `;

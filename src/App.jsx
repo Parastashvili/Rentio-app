@@ -12,7 +12,6 @@ function App() {
       <HeaderNavigation />
       <HeaderSlider />
       <MostWanted />
-      <HeaderNavigation />
     </>
   );
 }

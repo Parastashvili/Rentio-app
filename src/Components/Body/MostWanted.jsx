@@ -6,7 +6,6 @@ import slider9 from "../../assets/slider/9.jpg";
 import slider1 from "../../assets/slider/1.jpg";
 import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Card } from "antd";
 import "@splidejs/react-splide/css/sea-green";
 import "./customCss.css";
 export default function MostWanted() {

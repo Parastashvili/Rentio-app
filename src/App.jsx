@@ -1,8 +1,16 @@
 import { useState } from "react";
-import Header from "./Components/Header/Header";
+import HeaderStrip from "./Components/Header/HeaderStrip";
+import HeaderLogo from "./Components/Header/HeaderLogo";
+import HeaderNavigation from "./Components/Header/HeaderNavigation";
 
 function App() {
-  return <Header />;
+  return (
+    <>
+      <HeaderStrip />
+      <HeaderLogo />
+      <HeaderNavigation />
+    </>
+  );
 }
 
 export default App;

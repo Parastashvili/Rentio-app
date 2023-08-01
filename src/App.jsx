@@ -3,6 +3,7 @@ import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";
 import HeaderSlider from "./Components/Body/HeaderSlider";
 import MostWanted from "./Components/Body/MostWanted";
+import Assortment from "./Components/Body/Assortment";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <HeaderNavigation />
       <HeaderSlider />
       <MostWanted />
+      <Assortment />
     </>
   );
 }

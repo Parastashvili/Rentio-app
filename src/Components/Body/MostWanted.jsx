@@ -17,9 +17,9 @@ export default function MostWanted() {
         options={{
           type: "loop",
           focus: "center",
-          autoplay: true,
+          autoplay: false,
           fixedWidth: "200px",
-          height: "250px",
+          height: "240px",
         }}
       >
         {[...Array(index)].map((_, index) => (
@@ -31,10 +31,6 @@ export default function MostWanted() {
                   backgroundImage: `url(${images[index]})`,
                 }}
               />
-              <p>Khachapuri</p>
-              <div className="priceCont">
-                <p>$6.30</p>
-              </div>
             </SlideInner>
           </SplideSlide>
         ))}
@@ -48,40 +44,19 @@ const Outer = styled.div`
   margin: auto;
 `;
 const SlideInner = styled.div`
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding-bottom: 20px;
+  flex-direction: column;
+  padding: 0px;
+  div {
+    width: 200px;
+    display: flex;
+    align-items: center;
+  }
   .img {
     width: 200px;
-    height: 200px;
+    height: 120px;
     background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: ease 0.3s;
-    &:hover {
-      scale: 1.1;
-    }
-  }
-  p {
-    color: #191d23;
-    text-align: center;
-    font-family: Playfair Display;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28px;
-  }
-  .priceCont {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
-    p {
-      font-size: 18px;
-    }
+    background-size: cover;
   }
 `;

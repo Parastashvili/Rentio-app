@@ -6,12 +6,12 @@
 }
 .splide__slide {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  fill: #fff;
+  align-items: start;
+  justify-content: start;
   background-color: #ffffff;
   border-radius: 10px !important;
-  margin: 20px 0.5% !important;
+  margin: 0px 10px !important;
+  overflow: hidden;
 }
 .splide__pagination__page {
   background: #aaaeb4 !important;

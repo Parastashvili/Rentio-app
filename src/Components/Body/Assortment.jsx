@@ -122,7 +122,7 @@ const Outer = styled.div`
   }
 `;
 const Card = styled.div`
-  background-color: #ffffff;
+  background-color: rgb(256, 256, 256, 1);
   width: 295px;
   margin-top: 20px;
   border-radius: 10px;

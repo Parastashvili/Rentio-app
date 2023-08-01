@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { Turn as Hamburger } from "hamburger-react";
+import { Button, Drawer } from "antd";
 import { useState } from "react";
 import {
   ToolOutlined,
@@ -15,6 +16,13 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 export default function HeaderNavigation() {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   function getItem(label, key, icon, children, type) {
     return {
       key,
@@ -58,7 +66,6 @@ export default function HeaderNavigation() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  const [isOpen, setOpen] = useState(false);
   const items = [
     {
       label: "1st menu item",
@@ -125,36 +132,35 @@ export default function HeaderNavigation() {
           კონტაქტი
         </a>
       </div>
+      <Drawer
+        title="Basic Drawer"
+        placement="right"
+        onClose={onClose}
+        open={open}
+      >
+      <Menu
+          mode="inline"
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
+          style={{
+            width: 330,
+            margin: "auto",
+            marginTop: "20px",
+            backgroundColor: "transparent",
+            color: "#000",
+            fontFamily: "Noto Sans Georgian",
+          }}
+          items={ham}
+        />
+      </Drawer>
       <Ham>
         <Hamburger
-          toggled={isOpen}
           size={26}
-          toggle={setOpen}
           color="#ffffff"
+          type="primary"
+          onToggle={showDrawer}
+          toggled={open}
         />
-        <div
-          className="window"
-          style={
-            isOpen
-              ? { transform: "translateX(0px)" }
-              : { transform: "translateX(300px)" }
-          }
-        >
-          <Menu
-            mode="inline"
-            openKeys={openKeys}
-            onOpenChange={onOpenChange}
-            style={{
-              width: 256,
-              margin: "auto",
-              marginTop: "20px",
-              backgroundColor: "transparent",
-              color: "#ffffff",
-              fontFamily: "Noto Sans Georgian",
-            }}
-            items={ham}
-          />
-        </div>
       </Ham>
     </Nav>
   );
@@ -184,7 +190,7 @@ const Ham = styled.div`
   display: flex;
   justify-content: end;
   align-items: end;
-  padding: 3px;
+  padding: 3px 30px;
   position: relative;
   .window {
     transition: ease-out 0.2s;

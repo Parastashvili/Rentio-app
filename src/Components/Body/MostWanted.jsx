@@ -12,7 +12,6 @@ import "./customCss.css";
 export default function MostWanted() {
   const images = [slider1, slider7, slider6, slider9, slider8];
   const index = 5;
-  const { Meta } = Card;
   return (
     <Outer>
       <Splide

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import HeaderStrip from "./Components/Header/HeaderStrip";
 import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";

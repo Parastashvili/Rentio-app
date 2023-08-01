@@ -18,7 +18,7 @@ export default function HeaderLogo() {
           style={{
             width: 200,
           }}
-        />{" "}
+        />
         <Divider type="vertical" />
         <UserOutlined />
         <Divider type="vertical" />

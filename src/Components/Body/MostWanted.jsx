@@ -13,6 +13,7 @@ export default function MostWanted() {
   const index = 5;
   return (
     <Outer>
+      <p className="name">ყველაზე მოთხოვნადი</p>
       <Splide
         options={{
           type: "loop",
@@ -40,8 +41,17 @@ export default function MostWanted() {
 }
 const Outer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
+  .name {
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 50px 0 0 50px;
+    margin-bottom: -30px;
+  }
 `;
 const SlideInner = styled.div`
   display: flex;

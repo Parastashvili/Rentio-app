@@ -7,7 +7,7 @@ import slider1 from "../../assets/slider/1.jpg";
 import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
-import "./customCss.css";
+import "./custom.css";
 export default function MostWanted() {
   const images = [slider1, slider7, slider6, slider9, slider8];
   const index = 5;

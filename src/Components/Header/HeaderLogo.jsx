@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
-import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import { Divider } from "antd";
 import { Modal } from "antd";
 import { Image } from "antd";
 import item1 from "../../assets/products/bargalka.jpg";
 import { InputNumber } from "antd";
-import { Avatar, Badge, Space } from "antd";
+import { Avatar, Badge } from "antd";
 export default function HeaderLogo() {
   const [totalPrice, setTotalPrice] = useState("0 ლარი");
   const countPrice = (value) => {
@@ -30,8 +30,6 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        {/* <UserOutlined /> */}
-        {/* <Divider type="vertical" /> */}
         <Badge count={1}>
           <Avatar
             shape="square"

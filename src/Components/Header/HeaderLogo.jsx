@@ -6,17 +6,55 @@ import { Input } from "antd";
 import { Divider } from "antd";
 import { Modal } from "antd";
 import { Image } from "antd";
-import item1 from "../../assets/products/bargalka.jpg";
 import { InputNumber } from "antd";
 import { Avatar, Badge } from "antd";
 export default function HeaderLogo() {
-  const [totalPrice, setTotalPrice] = useState("0 ლარი");
+  const [days, setDays] = useState(3);
   const countPrice = (value) => {
-    setTotalPrice(`${value * 2} ლარი`);
+    setDays(value);
   };
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   const [modalOpen, setModalOpen] = useState(false);
+  const basket = [
+    {
+      id: 1,
+      name: {
+        ka: "კუთხსახეხი",
+        en: "Angle grinder",
+        ru: "Углошлифовальные",
+      },
+      img: "https://media.veli.store/media/product/GWS_9-125_4.jpg",
+      dailyprice: "14",
+    },
+    {
+      id: 2,
+      name: {
+        ka: "პერფერატორი",
+        en: "Angle grinder",
+        ru: "Углошлифовальные",
+      },
+      img: "https://isurve.ge/cdn/shop/products/1-min_d5f600ee-8f5b-4875-b65f-c0fb0a4500b4_250x.jpg?v=1676112034",
+      dailyprice: "12",
+    },
+    {
+      id: 2,
+      name: {
+        ka: "პერფერატორი",
+        en: "Angle grinder",
+        ru: "Углошлифовальные",
+      },
+      img: "https://isurve.ge/cdn/shop/products/1-min_d5f600ee-8f5b-4875-b65f-c0fb0a4500b4_250x.jpg?v=1676112034",
+      dailyprice: "44",
+    },
+  ];
+  const totalPrices = () => {
+    let total = 0;
+    for (let i = 0; i < basket.length; i++) {
+      total += parseInt(basket[i].dailyprice) * days;
+    }
+    return total;
+  };
   return (
     <Logo>
       <img className="logo" src={logo} alt="site logo rentio" />
@@ -30,7 +68,7 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        <Badge count={1}>
+        <Badge count={basket.length}>
           <Avatar
             shape="square"
             icon={
@@ -50,19 +88,21 @@ export default function HeaderLogo() {
           onOk={() => setModalOpen(false)}
           onCancel={() => setModalOpen(false)}
         >
-          <Basket>
+          <Basket style={{marginBottom:"20px"}}>
             <p>ნივთი</p>
             <p>დრიური ფასი</p>
             <p>ფასი ჯამში</p>
           </Basket>
-          <Basket>
-            <div className="imgcont">
-              <Image preview={false} width={80} height={80} src={item1} />
-              <p>ბარგალკა</p>
-            </div>
-            <p className="daily price">4 ლარი</p>
-            <p className="total price">8 ლარი</p>
-          </Basket>
+          {basket.map((data) => (
+            <Basket>
+              <div className="imgcont">
+                <Image preview={false} width={80} height={80} src={data.img} />
+                <p>{data.name.ka}</p>
+              </div>
+              <p className="daily price">{data.dailyprice} ლარი</p>
+              <p className="total price">{days * data.dailyprice} ლარი</p>
+            </Basket>
+          ))}
           <Counter>
             <div className="inner">
               <p className="totaltextdaycount">დღეების რაოდენობა</p>
@@ -75,7 +115,7 @@ export default function HeaderLogo() {
             </div>
             <div className="inner">
               <p className="totaltextdaycount">საერთო ფასი</p>
-              <p className="totalprice">{totalPrice}</p>
+              <p className="totalprice">{totalPrices() + " ლარი"}</p>
             </div>
           </Counter>
         </Modal>

@@ -159,7 +159,7 @@ const Card = styled.div`
 `;
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
   @media screen and (max-width: 750px) {
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   }

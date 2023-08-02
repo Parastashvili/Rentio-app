@@ -1,19 +1,12 @@
 import React from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import item1 from "../../assets/products/bargalka.jpg";
-import item2 from "../../assets/products/elq.jpg";
-import item3 from "../../assets/products/drujba.jpg";
-import item4 from "../../assets/products/perf.jpg";
-import item5 from "../../assets/products/beton.jpg";
-import item6 from "../../assets/products/satkepn.jpg";
-import item7 from "../../assets/products/dreli.jpg";
 import data from "../../data/data";
 export default function Assortment() {
   const wholeAssortment = data;
   return (
     <Outer>
-      <p className="section">ინსტრუმენტები</p>
+      <p className="section">ყველა ინსტრუმენტი</p>
       <CardContainer>
         {wholeAssortment.map((data) => (
           <Card>

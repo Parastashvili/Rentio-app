@@ -84,15 +84,16 @@ const Dsc = styled.div`
     font-weight: 600;
     line-height: 24px;
     padding: 5px 10px;
-    width: 500px;
+    width: 200px;
     height: 15px;
+    overflow: hidden;
   }
   .itemDsc {
     color: #000000;
     font-family: "Noto Sans Georgian", sans-serif;
     font-size: 12px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 15px;
     padding: 5px 10px;
     width: 185px;
     height: 70px;

@@ -8,6 +8,7 @@ import { Modal } from "antd";
 import { Image } from "antd";
 import item1 from "../../assets/products/bargalka.jpg";
 import { InputNumber } from "antd";
+import { Avatar, Badge, Space } from "antd";
 export default function HeaderLogo() {
   const [totalPrice, setTotalPrice] = useState("0 ლარი");
   const countPrice = (value) => {
@@ -29,12 +30,19 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        <UserOutlined />
-        <Divider type="vertical" />
-        <ShoppingCartOutlined
-          type="primary"
-          onClick={() => setModalOpen(true)}
-        />
+        {/* <UserOutlined /> */}
+        {/* <Divider type="vertical" /> */}
+        <Badge count={1}>
+          <Avatar
+            shape="square"
+            icon={
+              <ShoppingCartOutlined
+                type="primary"
+                onClick={() => setModalOpen(true)}
+              />
+            }
+          />
+        </Badge>
         <Modal
           okText={"დაკავშირება"}
           cancelText={"დახურვა"}

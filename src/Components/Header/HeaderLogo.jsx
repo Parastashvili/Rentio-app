@@ -88,7 +88,7 @@ export default function HeaderLogo() {
           onOk={() => setModalOpen(false)}
           onCancel={() => setModalOpen(false)}
         >
-          <Basket style={{marginBottom:"20px"}}>
+          <Basket style={{ marginBottom: "20px" }}>
             <p>ნივთი</p>
             <p>დრიური ფასი</p>
             <p>ფასი ჯამში</p>

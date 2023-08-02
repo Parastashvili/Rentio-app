@@ -13,8 +13,8 @@ export default function MostWanted() {
       <Splide
         options={{
           type: "loop",
-          focus: "left",
-          autoplay: false,
+          focus: "center",
+          autoplay: true,
           fixedWidth: "200px",
           height: "300px",
         }}

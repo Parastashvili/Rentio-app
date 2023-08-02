@@ -35,28 +35,27 @@ export default function HeaderNavigation() {
   const ham = [
     getItem("მთავარი", "sub1", <RollbackOutlined />),
     getItem("ინსტრუმენტები", "sub2", <ToolOutlined />, [
-      getItem("დრელი", "5"),
-      getItem("ჩაქუჩი", "6"),
-      getItem("ურო", "sub3", null, [
-        getItem("წერაქვი", "7"),
-        getItem("ბარი", "8"),
-      ]),
+      getItem("ელექტრო ინსტრუმენტები", "5"),
+      getItem("სამშენებლო მოწყობილობები", "6"),
+      getItem("საწმენდი ტექნიკა", "7"),
+      getItem("სამღებრო ინსტრუმენტები", "8"),
+      getItem("ხელის ინსტრუმენტები", "9"),
     ]),
-    getItem("სახლი და ეზო", "sub4", <HomeOutlined />, [
-      getItem("ხე", "9"),
-      getItem("ბუჩქი", "10"),
-      getItem("მინდორი", "11"),
-      getItem("ფანტანი", "12"),
+    getItem("სახლი და ეზო", "sub3", <HomeOutlined />, [
+      getItem("ბაღის მოვლა", "10"),
+      getItem("სარწყავი მილები", "11"),
+      getItem("ინსტრუმენტების ყუთები", "12"),
+      getItem("ბაღის ჭურჭელი", "13"),
     ]),
-    getItem("ავტო ტექნიკა", "sub5", <CarOutlined />, [
-      getItem("ამწე მანიპულატორი", "13"),
-      getItem("თვითმცლელი", "14"),
+    getItem("ავტო ტექნიკა", "sub4", <CarOutlined />, [
+      getItem("ამწე მანიპულატორი", "14"),
+      getItem("თვითმცლელი", "15"),
     ]),
-    getItem("ჩვენს შესახებ", "sub6", <SmileOutlined />),
+    getItem("ჩვენს შესახებ", "sub5", <SmileOutlined />),
     getItem("პირობები", "sub7", <AuditOutlined />),
     getItem("კონტაქტი", "sub8", <ContactsOutlined />),
   ];
-  const rootSubmenuKeys = ["sub2", "sub4", "sub5"];
+  const rootSubmenuKeys = ["sub2", "sub3", "sub4"];
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -66,17 +65,53 @@ export default function HeaderNavigation() {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  const items = [
+  const tools = [
     {
-      label: "1st menu item",
+      label: "ელექტრო ინსტრუმენტები",
       key: "1",
     },
     {
-      label: "2nd menu item",
+      label: "სამშენებლო მოწყობილობები",
       key: "2",
     },
     {
-      label: "3rd menu item",
+      label: "საწმენდი ტექნიკა",
+      key: "3",
+    },
+    {
+      label: "სამღებრო ინსტრუმენტები",
+      key: "4",
+    },
+    {
+      label: "ხელის ინსტრუმენტები",
+      key: "5",
+    },
+  ];
+  const cars = [
+    {
+      label: "ამწე მანიპულატორი",
+      key: "1",
+    },
+    {
+      label: "თვითმცლელი",
+      key: "2",
+    },
+  ];
+  const home = [
+    {
+      label: "ბაღის მოვლა",
+      key: "1",
+    },
+    {
+      label: "სარწყავი მილები",
+      key: "2",
+    },
+    {
+      label: "ინსტრუმენტების ყუთები",
+      key: "3",
+    },
+    {
+      label: "ბაღის ჭურჭელი",
       key: "3",
     },
   ];
@@ -88,7 +123,7 @@ export default function HeaderNavigation() {
         </a>
         <Dropdown
           menu={{
-            items,
+            items: tools,
           }}
         >
           <a onClick={(e) => e.preventDefault()}>
@@ -100,7 +135,7 @@ export default function HeaderNavigation() {
         </Dropdown>
         <Dropdown
           menu={{
-            items,
+            items: home,
           }}
         >
           <a onClick={(e) => e.preventDefault()}>
@@ -112,7 +147,7 @@ export default function HeaderNavigation() {
         </Dropdown>
         <Dropdown
           menu={{
-            items,
+            items: cars,
           }}
         >
           <a onClick={(e) => e.preventDefault()}>
@@ -132,13 +167,8 @@ export default function HeaderNavigation() {
           კონტაქტი
         </a>
       </div>
-      <Drawer
-        title="ნავიგაცია"
-        placement="right"
-        onClose={onClose}
-        open={open}
-      >
-      <Menu
+      <Drawer title="ნავიგაცია" placement="right" onClose={onClose} open={open}>
+        <Menu
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}

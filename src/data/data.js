@@ -99,7 +99,7 @@ const data = [
     id: 7,
     category: "ხელსაწყოები",
     name: {
-      ka: "კუთხსახეხი ",
+      ka: "ბურღი",
       en: "Combi Drill",
       ru: "Дрель",
     },

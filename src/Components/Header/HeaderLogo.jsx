@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
 import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import { Divider } from "antd";
+import { Modal } from "antd";
+import { Image } from "antd";
+import item1 from "../../assets/products/bargalka.jpg";
 export default function HeaderLogo() {
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <Logo>
       <img className="logo" src={logo} alt="site logo rentio" />
@@ -22,7 +26,23 @@ export default function HeaderLogo() {
         <Divider type="vertical" />
         <UserOutlined />
         <Divider type="vertical" />
-        <ShoppingCartOutlined />
+        <ShoppingCartOutlined
+          type="primary"
+          onClick={() => setModalOpen(true)}
+        />
+        <Modal
+          okText={"დაკავშირება"}
+          cancelText={"დახურვა"}
+          title="კალათა"
+          centered
+          open={modalOpen}
+          onOk={() => setModalOpen(false)}
+          onCancel={() => setModalOpen(false)}
+        >
+          <div></div>
+          <Image width={80} height={80} src={item1} />
+          <p>ბარგალკა</p>
+        </Modal>
       </div>
     </Logo>
   );

@@ -10,6 +10,7 @@ import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
+import { Image } from "antd";
 export default function MostWanted() {
   const images = [item1, item2, item3, item4, item5, item6, item7];
   const index = 7;
@@ -19,7 +20,7 @@ export default function MostWanted() {
       <Splide
         options={{
           type: "loop",
-          focus: "center",
+          focus: "left",
           autoplay: false,
           fixedWidth: "200px",
           height: "240px",
@@ -29,12 +30,7 @@ export default function MostWanted() {
           <SplideSlide key={index}>
             <SlideInner>
               <div className="imgOut">
-                <div
-                  className="img"
-                  style={{
-                    backgroundImage: `url(${images[index]})`,
-                  }}
-                />
+                <Image width={200} src={images[index]} />
               </div>
               <Dsc>
                 <p className="itemName">კუთხსახეხი</p>
@@ -79,6 +75,7 @@ const SlideInner = styled.div`
     width: 200px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   .imgOut {
     height: 120px;

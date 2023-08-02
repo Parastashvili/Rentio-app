@@ -7,7 +7,11 @@ import { Divider } from "antd";
 import { Modal } from "antd";
 import { Image } from "antd";
 import item1 from "../../assets/products/bargalka.jpg";
+import { InputNumber } from "antd";
 export default function HeaderLogo() {
+  const onChange = (value) => {
+    console.log("changed", value);
+  };
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   const [modalOpen, setModalOpen] = useState(false);
@@ -39,9 +43,30 @@ export default function HeaderLogo() {
           onOk={() => setModalOpen(false)}
           onCancel={() => setModalOpen(false)}
         >
-          <div></div>
-          <Image width={80} height={80} src={item1} />
-          <p>ბარგალკა</p>
+          <Basket>
+            <p>ნივთი</p>
+            <p>დრიური ფასი</p>
+            <p>ფასი ჯამში</p>
+          </Basket>
+          <Basket>
+            <div className="imgcont">
+              <Image width={80} height={80} src={item1} />
+              <p>ბარგალკა</p>
+            </div>
+            <p className="daily price">4 ლარი</p>
+            <p className="total price">8 ლარი</p>
+          </Basket>
+          <Counter>
+            <p className="daycount">დღეების რაოდენობა</p>
+            <InputNumber
+              min={1}
+              max={90}
+              defaultValue={3}
+              onChange={onChange}
+            />
+            <p className="totaltext">საერთო ფასი</p>
+            <p className="totalprice">8</p>
+          </Counter>
         </Modal>
       </div>
     </Logo>
@@ -72,4 +97,36 @@ const Logo = styled.div`
       cursor: pointer;
     }
   }
+`;
+const Basket = styled.div`
+  font-family: "Noto Sans Georgian", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  :nth-child(1) {
+    width: 80px;
+  }
+  :nth-child(2) {
+    width: 110px;
+    text-align: right;
+  }
+  :nth-child(3) {
+    width: 90px;
+    text-align: right;
+  }
+  .price {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .imgcont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+`;
+const Counter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

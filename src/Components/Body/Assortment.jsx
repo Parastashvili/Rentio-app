@@ -8,107 +8,30 @@ import item4 from "../../assets/products/perf.jpg";
 import item5 from "../../assets/products/beton.jpg";
 import item6 from "../../assets/products/satkepn.jpg";
 import item7 from "../../assets/products/dreli.jpg";
+import data from "../../data/data";
 export default function Assortment() {
+  const wholeAssortment = data;
   return (
     <Outer>
       <p className="section">ინსტრუმენტები</p>
       <CardContainer>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item1})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item2})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item3})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item4})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item5})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item6})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item7})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="img" style={{ backgroundImage: `URL(${item1})` }} />
-          <div className="desc">
-            <p className="name">პერფერატორი</p>
-            <p className="spec">1100 ვატი</p>
-            <p className="pricee">20 ლარიდან</p>
-            <button className="btn">
-              <ShoppingCartOutlined />
-              დამატება
-            </button>
-          </div>
-        </Card>
+        {wholeAssortment.map((data) => (
+          <Card>
+            <div
+              className="img"
+              style={{ backgroundImage: `URL(${data.img})` }}
+            />
+            <div className="desc">
+              <p className="name">{data.name.ka}</p>
+              <p className="spec">{data.dsc.ka}</p>
+              <p className="pricee">{data.dailyprice / 2}₾ - დან</p>
+              <button className="btn">
+                <ShoppingCartOutlined />
+                დამატება
+              </button>
+            </div>
+          </Card>
+        ))}
       </CardContainer>
     </Outer>
   );
@@ -129,34 +52,62 @@ const Outer = styled.div`
 `;
 const Card = styled.div`
   background-color: rgb(256, 256, 256, 1);
-  width: 295px;
   margin-top: 20px;
   border-radius: 10px;
   overflow: hidden;
   margin: auto;
   display: flex;
+  width: 320px;
+  height: 200px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  position: relative;
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    width: 180px;
+    height: 350px;
+  }
   .desc {
-    width: 120px;
+    width: 150px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px 0;
     .name {
       color: #000;
       font-family: "Noto Sans Georgian", sans-serif;
       font-size: 15px;
       font-weight: 600;
-      line-height: 15px;
+      line-height: 20px;
       text-decoration: none;
+      height: 40px;
+      position: absolute;
+      top: 20px;
+      left: 59%;
+      overflow: hidden;
+      @media screen and (max-width: 750px) {
+        top: 180px;
+        left: 10px;
+      }
     }
     .spec {
       color: #000;
       font-family: "Noto Sans Georgian", sans-serif;
       font-size: 12px;
-      font-weight: 400;
-      line-height: 13px;
+      font-weight: 300;
+      line-height: 14px;
       text-decoration: none;
+      position: absolute;
+      height: 70px;
+      width: 140px;
+      top: 70px;
+      left: 59%;
+      overflow: hidden;
+      @media screen and (max-width: 750px) {
+        top: 220px;
+        left: 10px;
+      }
     }
     .pricee {
       color: #000;
@@ -165,6 +116,15 @@ const Card = styled.div`
       font-weight: 500;
       line-height: 15px;
       text-decoration: none;
+      position: absolute;
+      height: 15px;
+      top: 150px;
+      left: 59%;
+      overflow: hidden;
+      @media screen and (max-width: 750px) {
+        top: 300px;
+        left: 10px;
+      }
     }
     .btn {
       background-color: #febd18;
@@ -176,30 +136,42 @@ const Card = styled.div`
       justify-content: center;
       gap: 5px;
       padding: 5px 0;
+      width: 120px;
       cursor: pointer;
+      position: absolute;
+      top: 170px;
+      left: 59%;
+      overflow: hidden;
+      @media screen and (max-width: 750px) {
+        top: 320px;
+        left: 10px;
+      }
       &:hover {
         opacity: 0.7;
       }
     }
   }
   .img {
-    width: 150px;
+    width: 200px;
     height: 150px;
-    margin: 0 10px;
     background-position: center;
     background-size: cover;
     transition: ease 0.3s;
     cursor: pointer;
+    margin-right: 10px;
     &:hover {
-      scale: 1.1;
+      scale: 1.05;
     }
   }
 `;
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  @media screen and (max-width: 750px) {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
   justify-content: center;
   align-items: center;
   grid-gap: 10px;
-  padding: 0 40px;
+  padding: 0 20px;
 `;

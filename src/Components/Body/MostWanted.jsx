@@ -1,19 +1,12 @@
 import React from "react";
-import item1 from "../../assets/products/bargalka.jpg";
-import item2 from "../../assets/products/elq.jpg";
-import item3 from "../../assets/products/drujba.jpg";
-import item4 from "../../assets/products/perf.jpg";
-import item5 from "../../assets/products/beton.jpg";
-import item6 from "../../assets/products/satkepn.jpg";
-import item7 from "../../assets/products/dreli.jpg";
 import { styled } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 import { Image } from "antd";
+import data from "../../data/data";
 export default function MostWanted() {
-  const images = [item1, item2, item3, item4, item5, item6, item7];
-  const index = 7;
+  const popular = data.slice(0, 10);
   return (
     <Outer>
       <p className="name">ყველაზე მოთხოვნადი</p>
@@ -23,20 +16,22 @@ export default function MostWanted() {
           focus: "left",
           autoplay: false,
           fixedWidth: "200px",
-          height: "240px",
+          height: "300px",
         }}
       >
-        {[...Array(index)].map((_, index) => (
-          <SplideSlide key={index}>
+        {popular.map((data) => (
+          <SplideSlide key={data.id}>
             <SlideInner>
               <div className="imgOut">
-                <Image width={200} src={images[index]} />
+                <Image width={200} height={150} src={data.img} />
               </div>
               <Dsc>
-                <p className="itemName">კუთხსახეხი</p>
-                <p className="itemDsc">1000W</p>
+                <p className="itemName">{data.name.ka}</p>
+                <p className="itemDsc">{data.dsc.ka}</p>
                 <div className="pricecont">
-                  <p className="itemPrice">ფასი: 6₾ დან - 24₾ მდე</p>
+                  <p className="itemPrice">
+                    ფასი: ${data.dailyprice / 2}₾ დან - ${data.dailyprice}₾ მდე
+                  </p>
                 </div>
               </Dsc>
             </SlideInner>
@@ -66,11 +61,6 @@ const SlideInner = styled.div`
   flex-direction: column;
   padding: 0px;
   cursor: pointer;
-  &:hover {
-    .img {
-      scale: 1.1;
-    }
-  }
   div {
     width: 200px;
     display: flex;
@@ -78,16 +68,8 @@ const SlideInner = styled.div`
     justify-content: center;
   }
   .imgOut {
-    height: 120px;
+    height: 150px;
     overflow: hidden;
-    .img {
-      width: 200px;
-      height: 120px;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      transition: ease 0.2s;
-    }
   }
 `;
 const Dsc = styled.div`
@@ -102,18 +84,19 @@ const Dsc = styled.div`
     font-weight: 600;
     line-height: 24px;
     padding: 5px 10px;
-    width: 100px;
-    height: 10px;
+    width: 500px;
+    height: 15px;
   }
   .itemDsc {
     color: #000000;
     font-family: "Noto Sans Georgian", sans-serif;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 24px;
+    font-weight: 300;
+    line-height: 16px;
     padding: 5px 10px;
-    width: 100px;
-    height: 50px;
+    width: 185px;
+    height: 70px;
+    overflow: hidden;
   }
   .pricecont {
     display: flex;

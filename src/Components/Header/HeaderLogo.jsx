@@ -9,8 +9,9 @@ import { Image } from "antd";
 import item1 from "../../assets/products/bargalka.jpg";
 import { InputNumber } from "antd";
 export default function HeaderLogo() {
-  const onChange = (value) => {
-    console.log("changed", value);
+  const [totalPrice, setTotalPrice] = useState("0 ლარი");
+  const countPrice = (value) => {
+    setTotalPrice(`${value * 2} ლარი`);
   };
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
@@ -63,12 +64,12 @@ export default function HeaderLogo() {
                 min={1}
                 max={90}
                 defaultValue={3}
-                onChange={onChange}
+                onChange={countPrice}
               />
             </div>
             <div className="inner">
               <p className="totaltextdaycount">საერთო ფასი</p>
-              <p className="totalprice">8 ლარი</p>
+              <p className="totalprice">{totalPrice}</p>
             </div>
           </Counter>
         </Modal>

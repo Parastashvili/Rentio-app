@@ -50,22 +50,26 @@ export default function HeaderLogo() {
           </Basket>
           <Basket>
             <div className="imgcont">
-              <Image width={80} height={80} src={item1} />
+              <Image preview={false} width={80} height={80} src={item1} />
               <p>ბარგალკა</p>
             </div>
             <p className="daily price">4 ლარი</p>
             <p className="total price">8 ლარი</p>
           </Basket>
           <Counter>
-            <p className="daycount">დღეების რაოდენობა</p>
-            <InputNumber
-              min={1}
-              max={90}
-              defaultValue={3}
-              onChange={onChange}
-            />
-            <p className="totaltext">საერთო ფასი</p>
-            <p className="totalprice">8</p>
+            <div className="inner">
+              <p className="totaltextdaycount">დღეების რაოდენობა</p>
+              <InputNumber
+                min={1}
+                max={90}
+                defaultValue={3}
+                onChange={onChange}
+              />
+            </div>
+            <div className="inner">
+              <p className="totaltextdaycount">საერთო ფასი</p>
+              <p className="totalprice">8 ლარი</p>
+            </div>
           </Counter>
         </Modal>
       </div>
@@ -127,6 +131,24 @@ const Basket = styled.div`
 `;
 const Counter = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
+  .totaltextdaycount {
+    color: #000000;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .totalprice {
+    color: #febd18;
+    font-size: 20px;
+    font-weight: 700;
+  }
 `;

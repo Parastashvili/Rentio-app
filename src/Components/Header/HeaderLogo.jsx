@@ -127,6 +127,11 @@ const Basket = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    @media screen and (max-width: 450px) {
+      :nth-child(2) {
+        display: none;
+      }
+    }
   }
 `;
 const Counter = styled.div`

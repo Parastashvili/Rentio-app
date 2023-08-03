@@ -2,14 +2,31 @@ import React from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
+import { message } from "antd";
 export default function Assortment() {
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "პროდუქტი დამატებულია",
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "warning",
+      content: "პროდუქტი უკვე კალათაშია",
+    });
+  };
   const addBasket = (data) => {
     const existingBasket = localStorage.getItem("basket");
     const basket = existingBasket ? JSON.parse(existingBasket) : [];
     const isItemExists = basket.some((item) => item.id === data.id);
     if (isItemExists) {
-      console.log("This item is already in the basket.");
+      error();
       return;
+    } else {
+      success();
     }
     basket.push(data);
     const updatedBasketJSON = JSON.stringify(basket);
@@ -34,6 +51,7 @@ export default function Assortment() {
                 <ShoppingCartOutlined />
                 დამატება
               </button>
+              {contextHolder}
             </div>
           </Card>
         ))}

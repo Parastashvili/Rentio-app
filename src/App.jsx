@@ -17,14 +17,16 @@ function App() {
   };
   const [currencySign, setCurrencySign] = useState("₾");
   const [isSticky, setIsSticky] = useState(false);
+
+  const existingBasket = localStorage.getItem("basket");
   const [basketQuantity, setBasketQuantity] = useState(
-    JSON.parse(localStorage.getItem("basket")).length
+    existingBasket ? JSON.parse(existingBasket).length : 0
   );
   const handleBasketQuantityChange = (quantity) => {
     setBasketQuantity(quantity);
   };
   const [basketQuantity2, setBasketQuantity2] = useState(
-    JSON.parse(localStorage.getItem("basket")).length
+    existingBasket ? JSON.parse(existingBasket).length : 0
   );
   const handleBasketQuantityChange2 = (quantity) => {
     setBasketQuantity2(quantity);

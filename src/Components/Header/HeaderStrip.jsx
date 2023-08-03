@@ -3,11 +3,14 @@ import { styled } from "styled-components";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { useState } from "react";
-export default function Header() {
+
+const Header = ({ currencySet, currencySignSet }) => {
   const [currency, setCurrency] = useState("₾");
   const [lang, setLang] = useState("KA");
   const onClickCur = ({ key }) => {
     setCurrency(key);
+    currencySet(1 / 2.6);
+    currencySignSet("$");
   };
   const onClickLan = ({ key }) => {
     setLang(key);
@@ -78,7 +81,8 @@ export default function Header() {
       </div>
     </Headmain>
   );
-}
+};
+export default Header;
 const Headmain = styled.div`
   background-color: #393e46;
   div {

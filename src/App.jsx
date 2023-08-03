@@ -8,6 +8,14 @@ import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
 function App() {
+  const [currency, setCurrency] = useState(1);
+  const changeCurrency = (e) => {
+    setCurrency(e);
+  };
+  const changeCurrencySign = (e) => {
+    setCurrencySign(e);
+  };
+  const [currencySign, setCurrencySign] = useState("₾");
   const [isSticky, setIsSticky] = useState(false);
   const [basketQuantity, setBasketQuantity] = useState(
     JSON.parse(localStorage.getItem("basket")).length
@@ -41,7 +49,10 @@ function App() {
   }, []);
   return (
     <>
-      <HeaderStrip />
+      <HeaderStrip
+        currencySet={changeCurrency}
+        currencySignSet={changeCurrencySign}
+      />
       <div className={isSticky ? "static fixed" : "static"}>
         <HeaderLogo
           badge={basketQuantity}
@@ -50,8 +61,12 @@ function App() {
         <HeaderNavigation />
       </div>
       <HeaderSlider />
-      <MostWanted />
-      <Assortment onBasketQuantityChange={handleBasketQuantityChange} />
+      <MostWanted currencyVal={currency} currencySign={currencySign} />
+      <Assortment
+        onBasketQuantityChange={handleBasketQuantityChange}
+        currencyVal={currency}
+        currencySign={currencySign}
+      />
       <Footer basketQuantity2={basketQuantity2} />
     </>
   );

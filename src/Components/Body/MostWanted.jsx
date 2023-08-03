@@ -5,7 +5,7 @@ import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 import { Image } from "antd";
 import data from "../../data/data";
-export default function MostWanted() {
+const MostWanted = ({ currencyVal, currencySign }) => {
   const popular = data.slice(0, 10);
   return (
     <Outer>
@@ -30,7 +30,10 @@ export default function MostWanted() {
                 <p className="itemDsc">{data.dsc.ka}</p>
                 <div className="pricecont">
                   <p className="itemPrice">
-                    ფასი: {data.dailyprice / 2}₾ დან - {data.dailyprice}₾ მდე
+                    ფასი: {Math.ceil((data.dailyprice * currencyVal) / 2)}
+                    {currencySign} დან -{" "}
+                    {Math.ceil(data.dailyprice * currencyVal)}
+                    {currencySign} მდე
                   </p>
                 </div>
               </Dsc>
@@ -40,7 +43,8 @@ export default function MostWanted() {
       </Splide>
     </Outer>
   );
-}
+};
+export default MostWanted;
 const Outer = styled.div`
   width: 100%;
   max-width: 1300px;

@@ -3,9 +3,7 @@ import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
-const Assortment = ({ onBasketQuantityChange }) => {
-  const [currency, setCurrency] = useState(1);
-  const [currencySign, setCurrencySign] = useState("₾");
+const Assortment = ({ onBasketQuantityChange, currencyVal, currencySign }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -50,7 +48,7 @@ const Assortment = ({ onBasketQuantityChange }) => {
               <p className="name">{data.name.ka}</p>
               <p className="spec">{data.dsc.ka}</p>
               <p className="pricee">
-                {(data.dailyprice * currency) / 2}
+                {Math.ceil((data.dailyprice * currencyVal) / 2)}
                 {currencySign} - დან
               </p>
               <button className="btn" onClick={() => addBasket(data)}>

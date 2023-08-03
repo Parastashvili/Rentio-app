@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
 export default function Assortment() {
+  const [currency, setCurrency] = useState(0.5);
+  const [currencySign, setCurrencySign] = useState("₾");
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -30,6 +32,7 @@ export default function Assortment() {
     basket.push(data);
     const updatedBasketJSON = JSON.stringify(basket);
     localStorage.setItem("basket", updatedBasketJSON);
+    setLength(JSON.parse(localStorage.getItem("basket")).length);
   };
   const wholeAssortment = data;
   return (
@@ -45,7 +48,10 @@ export default function Assortment() {
             <div className="desc">
               <p className="name">{data.name.ka}</p>
               <p className="spec">{data.dsc.ka}</p>
-              <p className="pricee">{data.dailyprice / 2}₾ - დან</p>
+              <p className="pricee">
+                {(data.dailyprice * currency) / 2}
+                {currencySign} - დან
+              </p>
               <button className="btn" onClick={() => addBasket(data)}>
                 <ShoppingCartOutlined />
                 დამატება

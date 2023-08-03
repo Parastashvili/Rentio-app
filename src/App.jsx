@@ -7,7 +7,6 @@ import MostWanted from "./Components/Body/MostWanted";
 import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
-
 function App() {
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
@@ -25,7 +24,6 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <>
       <HeaderStrip />

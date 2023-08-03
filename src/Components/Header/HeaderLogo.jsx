@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
 import { ShoppingCartOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -25,6 +25,19 @@ export default function HeaderLogo() {
     }
     return total;
   };
+  const removeFromBasket = (data) => {
+    const existingBasket = localStorage.getItem("basket");
+    if (existingBasket) {
+      const basket = JSON.parse(existingBasket);
+      const updatedBasket = basket.filter((item) => item.id !== data.id);
+      const updatedBasketJSON = JSON.stringify(updatedBasket);
+      localStorage.setItem("basket", updatedBasketJSON);
+      setLength(JSON.parse(localStorage.getItem("basket")).length);
+    }
+  };
+  const [length, setLength] = useState(
+    JSON.parse(localStorage.getItem("basket")).length
+  );
   return (
     <Logo>
       <img className="logo" src={logo} alt="site logo rentio" />
@@ -38,7 +51,7 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        <Badge count={67}>
+        <Badge count={length}>
           <Avatar
             shape="square"
             icon={
@@ -54,7 +67,7 @@ export default function HeaderLogo() {
           cancelText={"დახურვა"}
           title="კალათა"
           centered
-          open={modalOpen}
+          visible={modalOpen}
           onOk={() => setModalOpen(false)}
           onCancel={() => setModalOpen(false)}
         >
@@ -71,7 +84,10 @@ export default function HeaderLogo() {
               </div>
               <p className="daily price">{data.dailyprice} ლარი</p>
               <p className="total price">{days * data.dailyprice} ლარი</p>
-              <DeleteOutlined />
+              <DeleteOutlined
+                style={{ color: "red" }}
+                onClick={() => removeFromBasket(data)}
+              />
             </Basket>
           ))}
           <Counter>

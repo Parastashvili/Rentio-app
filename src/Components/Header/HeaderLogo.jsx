@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import { Divider } from "antd";
 import { Modal } from "antd";
@@ -16,38 +16,8 @@ export default function HeaderLogo() {
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
   const [modalOpen, setModalOpen] = useState(false);
-  const basket = [
-    {
-      id: 1,
-      name: {
-        ka: "კუთხსახეხი",
-        en: "Angle grinder",
-        ru: "Углошлифовальные",
-      },
-      img: "https://media.veli.store/media/product/GWS_9-125_4.jpg",
-      dailyprice: "14",
-    },
-    {
-      id: 2,
-      name: {
-        ka: "პერფერატორი",
-        en: "Angle grinder",
-        ru: "Углошлифовальные",
-      },
-      img: "https://isurve.ge/cdn/shop/products/1-min_d5f600ee-8f5b-4875-b65f-c0fb0a4500b4_250x.jpg?v=1676112034",
-      dailyprice: "12",
-    },
-    {
-      id: 2,
-      name: {
-        ka: "პერფერატორი",
-        en: "Angle grinder",
-        ru: "Углошлифовальные",
-      },
-      img: "https://isurve.ge/cdn/shop/products/1-min_d5f600ee-8f5b-4875-b65f-c0fb0a4500b4_250x.jpg?v=1676112034",
-      dailyprice: "44",
-    },
-  ];
+  const existingBasket = localStorage.getItem("basket");
+  const basket = existingBasket ? JSON.parse(existingBasket) : [];
   const totalPrices = () => {
     let total = 0;
     for (let i = 0; i < basket.length; i++) {
@@ -94,13 +64,14 @@ export default function HeaderLogo() {
             <p>ფასი ჯამში</p>
           </Basket>
           {basket.map((data) => (
-            <Basket>
+            <Basket key={data.id}>
               <div className="imgcont">
                 <Image preview={false} width={80} height={80} src={data.img} />
                 <p>{data.name.ka}</p>
               </div>
               <p className="daily price">{data.dailyprice} ლარი</p>
               <p className="total price">{days * data.dailyprice} ლარი</p>
+              <DeleteOutlined />
             </Basket>
           ))}
           <Counter>
@@ -165,6 +136,24 @@ const Basket = styled.div`
     width: 90px;
     text-align: right;
   }
+  :nth-child(4) {
+    scale: 1.1;
+    transition: ease 0.3s;
+    margin: 0px -45px 0px -110px;
+    @media screen and (max-width: 530px) {
+      margin: 0px -50px 0px -100px;
+    }
+    @media screen and (max-width: 500px) {
+      margin: 0px -40px 0px -40px;
+    }
+    @media screen and (max-width: 390px) {
+      margin: 0px -40px 0px -10px;
+    }
+    &:hover {
+      scale: 1.3;
+      cursor: pointer;
+    }
+  }
   .price {
     color: #000000;
     font-size: 14px;
@@ -174,7 +163,7 @@ const Basket = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 500px) {
       :nth-child(2) {
         display: none;
       }

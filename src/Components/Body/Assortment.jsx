@@ -3,13 +3,25 @@ import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 export default function Assortment() {
+  const addBasket = (data) => {
+    const existingBasket = localStorage.getItem("basket");
+    const basket = existingBasket ? JSON.parse(existingBasket) : [];
+    const isItemExists = basket.some((item) => item.id === data.id);
+    if (isItemExists) {
+      console.log("This item is already in the basket.");
+      return;
+    }
+    basket.push(data);
+    const updatedBasketJSON = JSON.stringify(basket);
+    localStorage.setItem("basket", updatedBasketJSON);
+  };
   const wholeAssortment = data;
   return (
     <Outer>
       <p className="section">ყველა ინსტრუმენტი</p>
       <CardContainer>
         {wholeAssortment.map((data) => (
-          <Card>
+          <Card key={data.id}>
             <div
               className="img"
               style={{ backgroundImage: `URL(${data.img})` }}
@@ -18,7 +30,7 @@ export default function Assortment() {
               <p className="name">{data.name.ka}</p>
               <p className="spec">{data.dsc.ka}</p>
               <p className="pricee">{data.dailyprice / 2}₾ - დან</p>
-              <button className="btn">
+              <button className="btn" onClick={() => addBasket(data)}>
                 <ShoppingCartOutlined />
                 დამატება
               </button>
@@ -159,7 +171,7 @@ const Card = styled.div`
 `;
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   @media screen and (max-width: 750px) {
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   }

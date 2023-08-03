@@ -1,0 +1,11 @@
+.static {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgb(238, 238, 238, 1);
+}

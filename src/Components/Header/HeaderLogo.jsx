@@ -8,7 +8,7 @@ import { Modal } from "antd";
 import { Image } from "antd";
 import { InputNumber } from "antd";
 import { Avatar, Badge } from "antd";
-export default function HeaderLogo() {
+const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
   const [days, setDays] = useState(3);
   const countPrice = (value) => {
     setDays(value);
@@ -32,12 +32,10 @@ export default function HeaderLogo() {
       const updatedBasket = basket.filter((item) => item.id !== data.id);
       const updatedBasketJSON = JSON.stringify(updatedBasket);
       localStorage.setItem("basket", updatedBasketJSON);
-      setLength(JSON.parse(localStorage.getItem("basket")).length);
+      const QTY = JSON.parse(localStorage.getItem("basket")).length;
+      onBasketQuantityChange2(QTY);
     }
   };
-  const [length, setLength] = useState(
-    JSON.parse(localStorage.getItem("basket")).length
-  );
   return (
     <Logo>
       <img className="logo" src={logo} alt="site logo rentio" />
@@ -51,7 +49,7 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        <Badge count={length}>
+        <Badge count={badge}>
           <Avatar
             shape="square"
             icon={
@@ -109,7 +107,8 @@ export default function HeaderLogo() {
       </div>
     </Logo>
   );
-}
+};
+export default HeaderLogo;
 const Logo = styled.div`
   display: flex;
   align-items: center;

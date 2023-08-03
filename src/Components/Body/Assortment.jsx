@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
-export default function Assortment() {
-  const [currency, setCurrency] = useState(0.5);
+const Assortment = ({ onBasketQuantityChange }) => {
+  const [currency, setCurrency] = useState(1);
   const [currencySign, setCurrencySign] = useState("₾");
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
@@ -32,7 +32,8 @@ export default function Assortment() {
     basket.push(data);
     const updatedBasketJSON = JSON.stringify(basket);
     localStorage.setItem("basket", updatedBasketJSON);
-    setLength(JSON.parse(localStorage.getItem("basket")).length);
+    const QTY = JSON.parse(localStorage.getItem("basket")).length;
+    onBasketQuantityChange(QTY);
   };
   const wholeAssortment = data;
   return (
@@ -63,8 +64,8 @@ export default function Assortment() {
       </CardContainer>
     </Outer>
   );
-}
-
+};
+export default Assortment;
 const Outer = styled.div`
   width: 100%;
   max-width: 1300px;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
 import { ShoppingCartOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -38,7 +38,7 @@ export default function HeaderLogo() {
           }}
         />
         <Divider type="vertical" />
-        <Badge count={basket.length}>
+        <Badge count={67}>
           <Avatar
             shape="square"
             icon={

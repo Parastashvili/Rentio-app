@@ -5,7 +5,6 @@ import data from "../../data/data";
 import { message } from "antd";
 export default function Assortment() {
   const [messageApi, contextHolder] = message.useMessage();
-
   const success = () => {
     messageApi.open({
       type: "success",
@@ -59,6 +58,7 @@ export default function Assortment() {
     </Outer>
   );
 }
+
 const Outer = styled.div`
   width: 100%;
   max-width: 1300px;

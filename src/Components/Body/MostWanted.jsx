@@ -30,7 +30,7 @@ export default function MostWanted() {
                 <p className="itemDsc">{data.dsc.ka}</p>
                 <div className="pricecont">
                   <p className="itemPrice">
-                    ფასი: ${data.dailyprice / 2}₾ დან - ${data.dailyprice}₾ მდე
+                    ფასი: {data.dailyprice / 2}₾ დან - {data.dailyprice}₾ მდე
                   </p>
                 </div>
               </Dsc>

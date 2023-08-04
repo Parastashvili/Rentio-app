@@ -9,6 +9,7 @@ import Footer from "./Components/Body/Footer";
 import "./App.css";
 import MidHero from "./Components/Body/MidHero";
 import Brands from "./Components/Body/Brands";
+import Contact from "./Components/Body/Contact";
 function App() {
   const [currency, setCurrency] = useState(1);
   const changeCurrency = (e) => {
@@ -73,6 +74,7 @@ function App() {
       />
       <MidHero />
       <Brands />
+      <Contact />
       <Footer basketQuantity2={basketQuantity2} />
     </>
   );

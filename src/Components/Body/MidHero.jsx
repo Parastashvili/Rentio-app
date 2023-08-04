@@ -76,7 +76,7 @@ const Mid = styled.div`
     font-size: 26px;
     font-weight: 700;
     line-height: 34px;
-    background-color: rgb(238, 238, 238, 0);
+    background-color: rgb(243, 243, 243);
   }
   .left {
     width: calc(50% - 30px);

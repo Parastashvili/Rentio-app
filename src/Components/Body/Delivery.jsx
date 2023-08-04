@@ -34,7 +34,7 @@ export default function Delivery() {
 }
 const Cont = styled.div`
   width: 90%;
-  background-color: rgb(57, 62, 70, 0.3);
+  background-color: rgb(57, 62, 70, 0.7);
   padding: 0 20px;
   height: 130px;
   max-width: 1000px;

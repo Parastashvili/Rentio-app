@@ -8,4 +8,5 @@
   left: 0;
   z-index: 999;
   background-color: rgb(238, 238, 238, 1);
+  overflow: hidden;
 }

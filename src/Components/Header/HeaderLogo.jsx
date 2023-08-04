@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import logo from "../../assets/black.png";
 import { ShoppingCartOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -36,6 +36,20 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
       onBasketQuantityChange2(QTY);
     }
   };
+  const [showFloatBasket, setShowFloatBasket] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = window.scrollY || document.documentElement.scrollTop;
+      setShowFloatBasket(scrollHeight > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Logo>
       <img className="logo" src={logo} alt="site logo rentio" />
@@ -60,6 +74,19 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
             }
           />
         </Badge>
+        <FloatBasket show={showFloatBasket}>
+          <Badge count={badge}>
+            <Avatar
+              shape="square"
+              icon={
+                <ShoppingCartOutlined
+                  type="primary"
+                  onClick={() => setModalOpen(true)}
+                />
+              }
+            />
+          </Badge>
+        </FloatBasket>
         <Modal
           okText={"დაკავშირება"}
           cancelText={"დახურვა"}
@@ -109,6 +136,16 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
   );
 };
 export default HeaderLogo;
+const FloatBasket = styled.div`
+  position: fixed;
+  bottom: 30px;
+  right: 10%;
+  scale: 1.5;
+  z-index: 10;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: ${(props) => (props.show ? "block" : "none")};
+`;
 const Logo = styled.div`
   display: flex;
   align-items: center;

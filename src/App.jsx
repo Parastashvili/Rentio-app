@@ -19,7 +19,6 @@ function App() {
     setCurrencySign(e);
   };
   const [currencySign, setCurrencySign] = useState("₾");
-  const [isSticky, setIsSticky] = useState(false);
 
   const existingBasket = localStorage.getItem("basket");
   const [basketQuantity, setBasketQuantity] = useState(
@@ -37,34 +36,17 @@ function App() {
   useEffect(() => {
     setBasketQuantity(basketQuantity2);
   }, [basketQuantity2]);
-  useEffect(() => {
-    const handleScroll = () => {
-      const staticDiv = document.querySelector(".static");
-      const offset = staticDiv.offsetTop;
-      if (window.pageYOffset > offset) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
     <>
       <HeaderStrip
         currencySet={changeCurrency}
         currencySignSet={changeCurrencySign}
       />
-      <div className={isSticky ? "static fixed" : "static"}>
         <HeaderLogo
           badge={basketQuantity}
           onBasketQuantityChange2={handleBasketQuantityChange2}
         />
         <HeaderNavigation />
-      </div>
       <HeaderSlider />
       <MostWanted currencyVal={currency} currencySign={currencySign} />
       <Assortment

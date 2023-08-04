@@ -11,6 +11,14 @@ import MidHero from "./Components/Body/MidHero";
 import Brands from "./Components/Body/Brands";
 import Delivery from "./Components/Body/Delivery";
 function App() {
+  const getLang = localStorage.getItem("language");
+  const [language, setLanguage] = useState(
+    getLang ? JSON.parse(getLang) : "ka"
+  );
+  const changeLanguage = (e) => {
+    setLanguage(e);
+    localStorage.setItem("language", JSON.stringify(e));
+  };
   const [currency, setCurrency] = useState(1);
   const changeCurrency = (e) => {
     setCurrency(e);
@@ -19,7 +27,6 @@ function App() {
     setCurrencySign(e);
   };
   const [currencySign, setCurrencySign] = useState("₾");
-
   const existingBasket = localStorage.getItem("basket");
   const [basketQuantity, setBasketQuantity] = useState(
     existingBasket ? JSON.parse(existingBasket).length : 0
@@ -41,15 +48,21 @@ function App() {
       <HeaderStrip
         currencySet={changeCurrency}
         currencySignSet={changeCurrencySign}
+        languageSet={changeLanguage}
       />
-        <HeaderLogo
-          badge={basketQuantity}
-          onBasketQuantityChange2={handleBasketQuantityChange2}
-        />
-        <HeaderNavigation />
+      <HeaderLogo
+        badge={basketQuantity}
+        onBasketQuantityChange2={handleBasketQuantityChange2}
+      />
+      <HeaderNavigation />
       <HeaderSlider />
-      <MostWanted currencyVal={currency} currencySign={currencySign} />
+      <MostWanted
+        lang={language}
+        currencyVal={currency}
+        currencySign={currencySign}
+      />
       <Assortment
+        lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}
         currencySign={currencySign}

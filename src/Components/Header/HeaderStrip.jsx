@@ -4,9 +4,10 @@ import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { useState } from "react";
 
-const Header = ({ currencySet, currencySignSet }) => {
+const Header = ({ currencySet, currencySignSet, languageSet }) => {
   const [currency, setCurrency] = useState("₾");
-  const [lang, setLang] = useState("KA");
+  const getLang = localStorage.getItem("language");
+  const [lang, setLang] = useState(getLang ? JSON.parse(getLang) : "ka");
   const onClickCur = ({ key }) => {
     setCurrency(key);
     currencySet(1 / 2.6);
@@ -14,6 +15,7 @@ const Header = ({ currencySet, currencySignSet }) => {
   };
   const onClickLan = ({ key }) => {
     setLang(key);
+    languageSet(key);
   };
   const Currency = [
     {
@@ -28,15 +30,15 @@ const Header = ({ currencySet, currencySignSet }) => {
   const Language = [
     {
       label: "ქართული",
-      key: "KA",
+      key: "ka",
     },
     {
       label: "ინგლისური",
-      key: "EN",
+      key: "en",
     },
     {
       label: "რუსული",
-      key: "RU",
+      key: "ru",
     },
   ];
   return (
@@ -109,6 +111,7 @@ const Headmain = styled.div`
     font-size: 12px;
     font-weight: 400;
     line-height: 24px;
+    text-transform: uppercase;
   }
   .promo {
     @media screen and (max-width: 760px) {

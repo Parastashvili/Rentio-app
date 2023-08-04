@@ -3,7 +3,12 @@ import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
-const Assortment = ({ onBasketQuantityChange, currencyVal, currencySign }) => {
+const Assortment = ({
+  onBasketQuantityChange,
+  currencyVal,
+  currencySign,
+  lang,
+}) => {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -45,8 +50,8 @@ const Assortment = ({ onBasketQuantityChange, currencyVal, currencySign }) => {
               style={{ backgroundImage: `URL(${data.img})` }}
             />
             <div className="desc">
-              <p className="name">{data.name.ka}</p>
-              <p className="spec">{data.dsc.ka}</p>
+              <p className="name">{data.name[lang]}</p>
+              <p className="spec">{data.dsc[lang]}</p>
               <p className="pricee">
                 {Math.ceil((data.dailyprice * currencyVal) / 2)}
                 {currencySign} - დან

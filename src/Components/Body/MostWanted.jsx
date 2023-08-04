@@ -5,7 +5,7 @@ import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 import { Image } from "antd";
 import data from "../../data/data";
-const MostWanted = ({ currencyVal, currencySign }) => {
+const MostWanted = ({ currencyVal, currencySign, lang }) => {
   const popular = data.slice(0, 10);
   return (
     <Outer>
@@ -26,8 +26,8 @@ const MostWanted = ({ currencyVal, currencySign }) => {
                 <Image width={200} height={150} src={data.img} />
               </div>
               <Dsc>
-                <p className="itemName">{data.name.ka}</p>
-                <p className="itemDsc">{data.dsc.ka}</p>
+                <p className="itemName">{data.name[lang]}</p>
+                <p className="itemDsc">{data.dsc[lang]}</p>
                 <div className="pricecont">
                   <p className="itemPrice">
                     ფასი: {Math.ceil((data.dailyprice * currencyVal) / 2)}

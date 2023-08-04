@@ -68,7 +68,7 @@ const Outer = styled.div`
   width: 100%;
   max-width: 1300px;
   margin: auto;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   .section {
     color: #000000;
     font-family: "Noto Sans Georgian", sans-serif;

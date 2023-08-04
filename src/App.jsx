@@ -7,6 +7,7 @@ import MostWanted from "./Components/Body/MostWanted";
 import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
+import MidHero from "./Components/Body/MidHero";
 function App() {
   const [currency, setCurrency] = useState(1);
   const changeCurrency = (e) => {
@@ -69,6 +70,7 @@ function App() {
         currencyVal={currency}
         currencySign={currencySign}
       />
+      <MidHero />
       <Footer basketQuantity2={basketQuantity2} />
     </>
   );

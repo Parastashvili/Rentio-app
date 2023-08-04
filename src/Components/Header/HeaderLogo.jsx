@@ -120,7 +120,7 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
               <p className="totaltextdaycount">დღეების რაოდენობა</p>
               <InputNumber
                 min={1}
-                max={90}
+                max={30}
                 defaultValue={3}
                 onChange={countPrice}
               />

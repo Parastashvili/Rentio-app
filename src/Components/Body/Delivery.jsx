@@ -3,7 +3,7 @@ import icon1 from "../../assets/contact/del.svg";
 import icon2 from "../../assets/contact/crown.svg";
 import icon3 from "../../assets/contact/guar.svg";
 import styled from "styled-components";
-export default function Contact() {
+export default function Delivery() {
   return (
     <Cont>
       <div className="innerdiv">
@@ -38,7 +38,7 @@ const Cont = styled.div`
   padding: 0 20px;
   height: 130px;
   max-width: 1000px;
-  margin: auto;
+  margin: -30px auto 60px auto;
   border-radius: 10px;
   display: flex;
   align-items: center;

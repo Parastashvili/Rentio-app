@@ -94,7 +94,7 @@ const Mid = styled.div`
         position: absolute;
         top: 30px;
         overflow: hidden;
-        height: 40px;
+        height: 45px;
       }
       .producdsc {
         color: #000;

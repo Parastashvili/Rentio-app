@@ -145,6 +145,22 @@ const FloatBasket = styled.div`
   background-color: #ffffff;
   border-radius: 5px;
   display: ${(props) => (props.show ? "block" : "none")};
+  animation: jump 15s ease infinite;
+  @keyframes jump {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
 `;
 const Logo = styled.div`
   display: flex;

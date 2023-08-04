@@ -11,7 +11,7 @@ export default function Delivery() {
         <div className="textCont">
           <p className="maintext">მიწოდება</p>
           <p className="text">
-            მოქმედებს ადგილზე მიწოდების უფასო სერვისი 100₾+ ორდერებზე{" "}
+            100₾+ შეკვეთაზე მოქმედებს უფასო მიწოდების სერვისი
           </p>
         </div>
       </div>

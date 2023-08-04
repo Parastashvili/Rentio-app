@@ -55,6 +55,9 @@ export default function MidHero() {
   );
 }
 const Mid = styled.div`
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding: 50px 10px 30px 10px;
   position: relative;
   display: flex;
   align-items: center;
@@ -67,12 +70,13 @@ const Mid = styled.div`
   }
   .sectionHeader {
     position: absolute;
-    top: -50px;
+    top: -20px;
     color: #000000;
     font-family: "Noto Sans Georgian", sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 34px;
+    background-color: rgb(238, 238, 238, 0);
   }
   .left {
     width: calc(50% - 30px);

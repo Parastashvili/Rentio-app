@@ -135,6 +135,7 @@ const Mid = styled.div`
     }
     .productimg2 {
       height: 100%;
+      width: 190px;
     }
     .productname2 {
       color: #000;

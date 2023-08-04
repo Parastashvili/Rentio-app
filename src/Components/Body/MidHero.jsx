@@ -6,6 +6,7 @@ import shesawamli from "../../assets/products/shesawamli.jpg";
 export default function MidHero() {
   return (
     <Mid>
+      <p className="sectionHeader">ბაღის ინვენტარი</p>
       <div className="left">
         <img className="productimg" src={sakfrechi} alt="product image" />
         <div className="dscdiv">
@@ -54,6 +55,7 @@ export default function MidHero() {
   );
 }
 const Mid = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,6 +64,17 @@ const Mid = styled.div`
   gap: 30px;
   @media screen and (max-width: 690px) {
     flex-direction: column;
+  }
+  .sectionHeader {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0 50px;
   }
   .left {
     width: calc(50% - 30px);

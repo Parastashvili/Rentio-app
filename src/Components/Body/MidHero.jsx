@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import sakfrechi from "../../assets/products/sakrechi.jpg";
 import mili from "../../assets/products/mili.jpg";
+import shesawamli from "../../assets/products/shesawamli.jpg";
 export default function MidHero() {
   return (
     <Mid>
@@ -25,20 +26,29 @@ export default function MidHero() {
         <div className="right1">
           <img className="productimg2" src={mili} alt="product image" />
           <div className="dscdiv2">
-            <h3 className="productname2">
-              გაზონის საკრეჭი მანქანა BOSCH ROTAK 32
-            </h3>
+            <h3 className="productname2">სარწყავი მილი 50 მ 3/4 ინჩი</h3>
             <p className="producdsc2">
-              შეთავაზებაშია გაზონის საკრეჭი მანქანა BOSCH ROTAK 32. ბალახის
-              საკრეჭი რომელიც გარანტირებულად მძლავრად მუშაობს, მაღალსიჩქარიანი
-              ძრავის დახმარებით. გააჩნია ერგონომიული დიზაინი და აქვს
-              გადახურებისგან დაცვის ფუნქცია. ბალახის საჭრელი იდეალურადაა აგებული
-              და მარტივად სამართავია.
+              სარწყავი მილი 50 მ 3/4 ინჩი PERFOMANCE+ KARCHER <br></br>
+              <br></br> ზომა: 390X390X250 მმ <br></br>წონა: 11.5 კგ <br></br>
+              დიამეტრი: 3/4" <br></br>მილის სიგრძე: 50 მ
             </p>
-            <h4 className="productprice2">390 ₾</h4>
+            <h4 className="productprice2">55 ₾</h4>
           </div>
         </div>
-        <div className="right2">222</div>
+        <div className="right2">
+          <img className="productimg2" src={shesawamli} alt="product image" />
+          <div className="dscdiv2">
+            <h3 className="productname2">ხელის მექანიკური შესაწამლი</h3>
+            <p className="producdsc2">
+              ინგკოს პროდუქცია წარმოებულია ჩინეთში. ინგკო მრავალი წელია
+              მოღვაწეობს მსოფლიო ბაზარზე. მისი მიზანია პროფესიონალური
+              ხელსაწყოები გახადოს ყველასთვის ხელმისაწვდომი. პროდუქცია უნდა იყოს
+              ტექნიკურად, ვიზუალურად, ფუნქციურად სრულყოფილი და ასრულებდეს
+              ნებისმიერ სამუშაოს ეფექტიანად.
+            </p>
+            <h4 className="productprice2">125 ₾</h4>
+          </div>
+        </div>
       </div>
     </Mid>
   );
@@ -123,19 +133,65 @@ const Mid = styled.div`
     @media screen and (max-width: 690px) {
       width: calc(90% - 10px);
     }
+    .productimg2 {
+      height: 100%;
+    }
+    .productname2 {
+      color: #000;
+      font-family: "Noto Sans Georgian", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      text-decoration: none;
+      position: absolute;
+      top: 10px;
+      overflow: hidden;
+      height: 35px;
+    }
+    .producdsc2 {
+      color: #000;
+      font-family: "Noto Sans Georgian", sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 16px;
+      text-decoration: none;
+      position: absolute;
+      top: 50px;
+      overflow: hidden;
+      height: 100px;
+    }
+    .productprice2 {
+      color: #ffffff;
+      font-family: "Noto Sans Georgian", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 18px;
+      text-decoration: none;
+      position: absolute;
+      top: 160px;
+      background-color: #febd18;
+      padding: 2px 10px;
+      border-radius: 5px;
+    }
     .right1 {
       height: 190px;
       width: 100%;
-      background-color: green;
+      background-color: #ffffff;
       border-radius: 10px;
       padding-right: 20px;
+      overflow: hidden;
+      display: flex;
+      position: relative;
     }
     .right2 {
       width: 100%;
-      background-color: yellow;
+      background-color: #ffffff;
       border-radius: 10px;
       height: 190px;
       padding-right: 20px;
+      overflow: hidden;
+      display: flex;
+      position: relative;
     }
   }
 `;

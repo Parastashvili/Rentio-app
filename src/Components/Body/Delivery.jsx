@@ -68,6 +68,9 @@ const Cont = styled.div`
       @media screen and (max-width: 720px) {
         height: 125px;
       }
+      @media screen and (max-width: 660px) {
+        height: 80px;
+      }
       .maintext {
         color: #ffffff;
         font-family: "Noto Sans Georgian", sans-serif;

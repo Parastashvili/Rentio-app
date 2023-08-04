@@ -82,8 +82,9 @@ const Text = styled.div`
   font-size: 26px;
   font-weight: 700;
   line-height: 34px;
+  text-align: center;
   @media screen and (max-width: 600px) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 const Marquee = styled.div`

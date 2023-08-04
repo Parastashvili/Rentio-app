@@ -68,13 +68,11 @@ const Mid = styled.div`
   .sectionHeader {
     position: absolute;
     top: -50px;
-    left: 0;
     color: #000000;
     font-family: "Noto Sans Georgian", sans-serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 24px;
-    margin: 0 50px;
   }
   .left {
     width: calc(50% - 30px);

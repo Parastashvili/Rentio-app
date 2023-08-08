@@ -143,12 +143,14 @@ const Card = styled.div`
   overflow: hidden;
   margin: auto;
   display: flex;
-  width: 100%;
+  width: calc(100% - 40px);
   height: 250px;
   align-items: center;
   justify-content: center;
   position: relative;
-  @media screen and (max-width: 864px) {
+  padding: 5px 20px;
+  @media screen and (max-width: 809px) {
+    height: 135px;
   }
   .desc {
     width: 180px;
@@ -156,26 +158,26 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @media screen and (max-width: 864px) {
+    @media screen and (max-width: 809px) {
       width: calc(100% - 150px);
     }
     .name {
       color: #000000;
       font-family: "Noto Sans Georgian", sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
       line-height: 20px;
       text-decoration: none;
       height: 45px;
       position: absolute;
-      top: 20px;
+      top: 10px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 864px) {
+      @media screen and (max-width: 809px) {
         top: 5px;
-        left: 150px;
+        left: 160px;
         height: 22px;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
     .spec {
@@ -187,13 +189,13 @@ const Card = styled.div`
       text-decoration: none;
       position: absolute;
       height: 120px;
-      top: 65px;
+      top: 55px;
       left: 59%;
       overflow: hidden;
       padding-right: 10px;
-      @media screen and (max-width: 864px) {
+      @media screen and (max-width: 809px) {
         top: 35px;
-        left: 150px;
+        left: 160px;
         height: 55px;
         font-size: 12px;
       }
@@ -207,12 +209,12 @@ const Card = styled.div`
       text-decoration: none;
       position: absolute;
       height: 20px;
-      top: 190px;
+      top: 200px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 864px) {
+      @media screen and (max-width: 809px) {
         top: 90px;
-        left: 150px;
+        left: 160px;
         height: 70px;
         font-size: 13px;
       }
@@ -222,6 +224,7 @@ const Card = styled.div`
       border-width: 0;
       border-radius: 5px;
       color: #ffffff;
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -236,9 +239,9 @@ const Card = styled.div`
       &:hover {
         opacity: 0.7;
       }
-      @media screen and (max-width: 864px) {
+      @media screen and (max-width: 809px) {
         top: 110px;
-        left: 150px;
+        left: 160px;
       }
     }
   }

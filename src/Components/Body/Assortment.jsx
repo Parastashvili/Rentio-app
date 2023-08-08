@@ -136,6 +136,9 @@ const CardContainer = styled.div`
   gap: 10px;
   padding: 20px;
   position: relative;
+  @media screen and (max-width: 809px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 `;
 const Card = styled.div`
   background-color: rgb(256, 256, 256, 1);

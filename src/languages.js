@@ -13,6 +13,7 @@ export const languages = {
     quality2: "ყველა პროდუქტი არის უმაღლესი ხარისხის",
     guarantee: "გარანტია",
     guarantee2: "ყველა პროდუქტი არის საწარმოს გარანტიაზე",
+    add: "დამატება",
   },
   ru: {
     price: "Цена",
@@ -28,6 +29,7 @@ export const languages = {
     quality2: "Все товары высшего качества",
     guarantee: "Гарантия",
     guarantee2: "Все товары находятся на заводской гарантии",
+    add: "добавить",
   },
   en: {
     price: "Price",
@@ -43,5 +45,6 @@ export const languages = {
     quality2: "All products are of the highest quality",
     guarantee: "Guarantee",
     guarantee2: "All products are under factory warranty",
+    add: "Add",
   },
 };

@@ -6,6 +6,7 @@ import { message } from "antd";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
+import { languages } from "../../languages";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
@@ -73,11 +74,11 @@ const Assortment = ({
               <p className="spec">{data.dsc[lang]}</p>
               <p className="pricee">
                 {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                {currencySign} - დან
+                {currencySign} - {languages[lang].from}
               </p>
               <button className="btn" onClick={() => addBasket(data)}>
                 <ShoppingCartOutlined />
-                დამატება
+                {languages[lang].add}
               </button>
               {contextHolder}
             </div>
@@ -205,6 +206,7 @@ const Card = styled.div`
       top: 220px;
       left: 59%;
       overflow: hidden;
+      text-transform: capitalize;
       &:hover {
         opacity: 0.7;
       }

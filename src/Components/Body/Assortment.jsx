@@ -128,8 +128,8 @@ const Card = styled.div`
   position: relative;
   @media screen and (max-width: 750px) {
     flex-direction: column;
-    width: 145px;
-    height: 350px;
+    width: 90%;
+    height: 120px;
   }
   .desc {
     width: 150px;
@@ -231,7 +231,7 @@ const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   @media screen and (max-width: 750px) {
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   }
   justify-content: center;
   align-items: center;

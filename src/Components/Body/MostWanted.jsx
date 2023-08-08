@@ -58,8 +58,6 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
       <Splide
         options={{
           type: "loop",
-          autoplay: "pause",
-          perPage: 1,
           fixedWidth: "180px",
           height: "280px",
         }}

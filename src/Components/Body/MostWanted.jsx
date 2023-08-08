@@ -51,24 +51,24 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
     // return () => {
     //   unsub();
     // };
-  }, [firebaseData]);
+  }, []);
   return (
     <Outer>
       <p className="name">ყველაზე მოთხოვნადი</p>
       <Splide
         options={{
           type: "loop",
-          focus: "center",
-          autoplay: true,
-          fixedWidth: "200px",
-          height: "300px",
+          autoplay: "pause",
+          perPage: 1,
+          fixedWidth: "220px",
+          height: "370px",
         }}
       >
         {firebaseData.map((data) => (
           <SplideSlide key={data.id}>
             <SlideInner>
               <div className="imgOut">
-                <Image width={200} height={150} src={data.img} />
+                <Image width={220} height={220} src={data.img} />
               </div>
               <Dsc>
                 <p className="itemName">
@@ -123,13 +123,13 @@ const SlideInner = styled.div`
   padding: 0px;
   cursor: pointer;
   div {
-    width: 200px;
+    width: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .imgOut {
-    height: 150px;
+    height: 220px;
     overflow: hidden;
   }
 `;

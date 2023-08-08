@@ -51,7 +51,7 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
     // return () => {
     //   unsub();
     // };
-  }, []);
+  }, [firebaseData]);
   return (
     <Outer>
       <p className="name">ყველაზე მოთხოვნადი</p>

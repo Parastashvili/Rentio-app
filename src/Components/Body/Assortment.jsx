@@ -73,7 +73,7 @@ const Assortment = ({
     <Outer>
       <p className="section">ყველა ინსტრუმენტი</p>
       <CardContainer>
-        {firebaseData.map((data) => (
+        {wholeAssortment.map((data) => (
           <Card key={data.id}>
             <div
               className="img"

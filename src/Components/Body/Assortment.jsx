@@ -257,7 +257,7 @@ const Card = styled.div`
     &:hover {
       scale: 1.05;
     }
-    @media screen and (max-width: 864px) {
+    @media screen and (max-width: 809px) {
       width: 130px;
       height: 130px;
     }

@@ -7,6 +7,7 @@ import { Image } from "antd";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
+import { languages } from "../../languages";
 const MostWanted = ({ currencyVal, currencySign, lang }) => {
   const [firebaseData, setFirebaseData] = useState([]);
   useEffect(() => {
@@ -81,10 +82,14 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
                 </p>
                 <div className="pricecont">
                   <p className="itemPrice">
-                    ფასი: {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                    {currencySign} დან -
+                    {languages[lang].price}
+                    {":"}
+                    {Math.ceil((data.dailyprice * currencyVal) / 2)}
+                    {currencySign}
+                    {languages[lang].from} {"- "}
                     {Math.ceil(data.dailyprice * currencyVal)}
-                    {currencySign} მდე
+                    {currencySign}
+                    {languages[lang].to}
                   </p>
                 </div>
               </Dsc>

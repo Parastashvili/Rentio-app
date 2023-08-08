@@ -8,5 +8,6 @@ const SectionHeader = styled.div`
   padding: 20px 0 0 10px;
   margin: auto;
   max-width: 1200px;
+  text-transform: capitalize;
 `;
 export default SectionHeader;

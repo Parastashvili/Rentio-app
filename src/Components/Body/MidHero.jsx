@@ -3,10 +3,11 @@ import { styled } from "styled-components";
 import sakfrechi from "../../assets/products/sakrechi.jpg";
 import mili from "../../assets/products/mili.jpg";
 import shesawamli from "../../assets/products/shesawamli.jpg";
-export default function MidHero() {
+import { languages } from "../../languages";
+export default function MidHero(props) {
   return (
     <Mid>
-      <p className="sectionHeader">ბაღის ინვენტარი</p>
+      <p className="sectionHeader">{languages[props.lang].midderhero}</p>
       <div className="left">
         <img className="productimg" src={sakfrechi} alt="product image" />
         <div className="dscdiv">

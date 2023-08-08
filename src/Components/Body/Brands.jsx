@@ -10,13 +10,14 @@ import brand7 from "../../assets/brands/festool.png";
 import brand8 from "../../assets/brands/hilti.png";
 import brand9 from "../../assets/brands/ryobi.png";
 import brand10 from "../../assets/brands/stanley.png";
-function App() {
+import { languages } from "../../languages";
+function App(props) {
   const row1 = [brand1, brand2, brand4, brand5, brand6, brand7, brand10];
   const row2 = [brand1, brand4, brand8, brand3, brand7, brand5, brand9];
   return (
     <AppContainer>
       <Wrapper>
-        <Text>მსოფლიოს საუკეთესო ბრენდები</Text>
+        <Text>{languages[props.lang].bestbrands}</Text>
         <Marquee>
           <MarqueeGroup>
             {row1.map((el, index) => (

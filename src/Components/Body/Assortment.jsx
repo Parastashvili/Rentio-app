@@ -1,14 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
+import { db } from "../../firebase";
+import { useEffect, useState } from "react";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
   currencySign,
   lang,
 }) => {
+  const [firebaseData, setFirebaseData] = useState([]);
+  useEffect(() => {
+    const unsub = onSnapshot(
+      collection(db, "carusell"),
+      (snapShot) => {
+        let list = [];
+        snapShot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setFirebaseData(list);
+        console.log(list[0].name[ka]);
+        console.log(datae);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    return () => {
+      unsub();
+    };
+  }, []);
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -43,15 +73,15 @@ const Assortment = ({
     <Outer>
       <p className="section">ყველა ინსტრუმენტი</p>
       <CardContainer>
-        {wholeAssortment.map((data) => (
+        {firebaseData.map((data) => (
           <Card key={data.id}>
             <div
               className="img"
               style={{ backgroundImage: `URL(${data.img})` }}
             />
             <div className="desc">
-              <p className="name">{data.name[lang]}</p>
-              <p className="spec">{data.dsc[lang]}</p>
+              <p className="name">{data.nameKa}</p>
+              <p className="spec">{data.dscKa}</p>
               <p className="pricee">
                 {Math.ceil((data.dailyprice * currencyVal) / 2)}
                 {currencySign} - დან

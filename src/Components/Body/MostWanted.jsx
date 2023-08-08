@@ -4,9 +4,54 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 import { Image } from "antd";
-import data from "../../data/data";
+import datae from "../../data/data";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
+import { db } from "../../firebase";
+import { useEffect, useState } from "react";
 const MostWanted = ({ currencyVal, currencySign, lang }) => {
-  const popular = data.slice(0, 10);
+  const [firebaseData, setFirebaseData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "carusell"));
+        querySnapshot.forEach((doc) => {
+          list.push(doc.data());
+        });
+        setFirebaseData(list);
+        console.log(list);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+    // Live update code
+
+    // const unsub = onSnapshot(
+    //   collection(db, "carusell"),
+    //   (snapShot) => {
+    //     let list = [];
+    //     snapShot.docs.forEach((doc) => {
+    //       list.push({ id: doc.id, ...doc.data() });
+    //     });
+    //     setFirebaseData(list);
+    //     console.log(list[0].name[ka]);
+    //     console.log(datae);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+    // return () => {
+    //   unsub();
+    // };
+  }, []);
   return (
     <Outer>
       <p className="name">ყველაზე მოთხოვნადი</p>
@@ -19,15 +64,27 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
           height: "300px",
         }}
       >
-        {popular.map((data) => (
+        {firebaseData.map((data) => (
           <SplideSlide key={data.id}>
             <SlideInner>
               <div className="imgOut">
                 <Image width={200} height={150} src={data.img} />
               </div>
               <Dsc>
-                <p className="itemName">{data.name[lang]}</p>
-                <p className="itemDsc">{data.dsc[lang]}</p>
+                <p className="itemName">
+                  {lang === "en"
+                    ? data.nameEn
+                    : lang === "ru"
+                    ? data.nameRus
+                    : data.nameGeo}
+                </p>
+                <p className="itemDsc">
+                  {lang === "en"
+                    ? data.dscEn
+                    : lang === "ru"
+                    ? data.dscRus
+                    : data.dscGeo}
+                </p>
                 <div className="pricecont">
                   <p className="itemPrice">
                     ფასი: {Math.ceil((data.dailyprice * currencyVal) / 2)}

@@ -60,15 +60,20 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
           type: "loop",
           autoplay: "pause",
           perPage: 1,
-          fixedWidth: "220px",
-          height: "370px",
+          fixedWidth: "180px",
+          height: "280px",
         }}
       >
         {firebaseData.map((data) => (
           <SplideSlide key={data.id}>
             <SlideInner>
               <div className="imgOut">
-                <Image width={220} height={220} src={data.img} />
+                <Image
+                  width={180}
+                  height={180}
+                  src={data.img}
+                  style={{ scale: "0.7" }}
+                />
               </div>
               <Dsc>
                 <p className="itemName">
@@ -123,13 +128,14 @@ const SlideInner = styled.div`
   padding: 0px;
   cursor: pointer;
   div {
-    width: 220px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .imgOut {
-    height: 220px;
+    height: 130px;
+    width: 180px;
     overflow: hidden;
   }
 `;

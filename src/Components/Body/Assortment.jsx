@@ -62,7 +62,7 @@ const Assortment = ({
   return (
     <Outer>
       <CardContainer>
-        {wholeAssortment.map((data) => (
+        {wholeAssortment.map((data, index) => (
           <Card key={data.id}>
             <div
               className="img"

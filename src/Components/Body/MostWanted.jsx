@@ -52,8 +52,8 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
           perPage: 1,
         }}
       >
-        {firebaseData.map((data) => (
-          <SplideSlide key={data.id}>
+        {firebaseData.map((data, index) => (
+          <SplideSlide key={index}>
             <SlideInner>
               <div className="imgOut">
                 <Image

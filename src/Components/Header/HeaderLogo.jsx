@@ -36,12 +36,15 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
       onBasketQuantityChange2(QTY);
     }
   };
-  const [showFloatBasket, setShowFloatBasket] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollHeight = window.scrollY || document.documentElement.scrollTop;
-      setShowFloatBasket(scrollHeight > 500);
+      if (window.scrollY > 200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -74,19 +77,21 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
             }
           />
         </Badge>
-        <FloatBasket show={showFloatBasket}>
-          <Badge count={badge}>
-            <Avatar
-              shape="square"
-              icon={
-                <ShoppingCartOutlined
-                  type="primary"
-                  onClick={() => setModalOpen(true)}
-                />
-              }
-            />
-          </Badge>
-        </FloatBasket>
+        {isVisible && (
+          <FloatBasket>
+            <Badge count={badge}>
+              <Avatar
+                shape="square"
+                icon={
+                  <ShoppingCartOutlined
+                    type="primary"
+                    onClick={() => setModalOpen(true)}
+                  />
+                }
+              />
+            </Badge>
+          </FloatBasket>
+        )}
         <Modal
           okText={"დაკავშირება"}
           cancelText={"დახურვა"}
@@ -144,7 +149,6 @@ const FloatBasket = styled.div`
   z-index: 10;
   background-color: #ffffff;
   border-radius: 5px;
-  display: ${(props) => (props.show ? "block" : "none")};
   animation: jump 15s ease infinite;
   @keyframes jump {
     0%,
@@ -162,6 +166,7 @@ const FloatBasket = styled.div`
     }
   }
 `;
+
 const Logo = styled.div`
   display: flex;
   align-items: center;

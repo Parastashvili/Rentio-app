@@ -19,15 +19,15 @@ function App() {
         <Text>მსოფლიოს საუკეთესო ბრენდები</Text>
         <Marquee>
           <MarqueeGroup>
-            {row1.map((el) => (
-              <ImageGroup key={el.id}>
+            {row1.map((el, index) => (
+              <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>
             ))}
           </MarqueeGroup>
           <MarqueeGroup>
-            {row1.map((el) => (
-              <ImageGroup>
+            {row1.map((el, index) => (
+              <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>
             ))}
@@ -35,15 +35,15 @@ function App() {
         </Marquee>
         <Marquee>
           <MarqueeGroup2>
-            {row2.map((el) => (
-              <ImageGroup>
+            {row2.map((el, index) => (
+              <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>
             ))}
           </MarqueeGroup2>
           <MarqueeGroup2>
-            {row2.map((el) => (
-              <ImageGroup>
+            {row2.map((el, index) => (
+              <ImageGroup key={index}>
                 <Image src={el} />
               </ImageGroup>
             ))}

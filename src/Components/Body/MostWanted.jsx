@@ -179,6 +179,7 @@ const Dsc = styled.div`
       line-height: 24px;
       padding: 5px 10px;
       height: 24px;
+      overflow: hidden;
     }
   }
 `;

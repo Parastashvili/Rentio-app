@@ -3,32 +3,15 @@ import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
-import {
-  collection,
-  getDocs,
-  deleteDoc,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
-import { experimentalStyled as styleds } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Unstable_Grid2";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
   currencySign,
   lang,
 }) => {
-  const Item = styleds(Paper)(({ theme }) => ({
-    backgroundColor: "#ffffff",
-    padding: theme.spacing(2),
-    height: "200px",
-    widows: "200px",
-    textAlign: "center",
-  }));
   const [firebaseData, setFirebaseData] = useState([]);
   useEffect(() => {
     const unsub = onSnapshot(
@@ -39,12 +22,8 @@ const Assortment = ({
           list.push({ id: doc.id, ...doc.data() });
         });
         setFirebaseData(list);
-        console.log(list[0].name[ka]);
-        console.log(datae);
       },
-      (error) => {
-        console.log(error);
-      }
+      (error) => {}
     );
     return () => {
       unsub();
@@ -82,19 +61,6 @@ const Assortment = ({
   const wholeAssortment = data;
   return (
     <Outer>
-      {/* <Box sx={{ flexGrow: "1" }}>
-        <Grid
-          container
-          spacing={{ xs: 3, md: 3 }}
-          columns={{ xs: 1, sm: 3, md: 3 }}
-        >
-          {Array.from(Array(6)).map((_, index) => (
-            <Grid xs={1} sm={1.5} md={1} key={index}>
-              <Item>55</Item>
-            </Grid>
-          ))}
-        </Grid>
-      </Box> */}
       <CardContainer>
         {wholeAssortment.map((data) => (
           <Card key={data.id}>

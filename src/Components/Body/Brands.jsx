@@ -20,7 +20,7 @@ function App() {
         <Marquee>
           <MarqueeGroup>
             {row1.map((el) => (
-              <ImageGroup>
+              <ImageGroup key={el.id}>
                 <Image src={el} />
               </ImageGroup>
             ))}

@@ -4,14 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
 import "./custom.css";
 import { Image } from "antd";
-import datae from "../../data/data";
-import {
-  collection,
-  getDocs,
-  deleteDoc,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 const MostWanted = ({ currencyVal, currencySign, lang }) => {
@@ -25,10 +18,7 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
           list.push(doc.data());
         });
         setFirebaseData(list);
-        console.log(list);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     fetchData();
     // Live update code
@@ -81,6 +71,7 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
                     ? data.nameRus
                     : data.nameGeo}
                 </p>
+                <p>{data.id}</p>
                 <p className="itemDsc">
                   {lang === "en"
                     ? data.dscEn
@@ -91,7 +82,7 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
                 <div className="pricecont">
                   <p className="itemPrice">
                     ფასი: {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                    {currencySign} დან -{" "}
+                    {currencySign} დან -
                     {Math.ceil(data.dailyprice * currencyVal)}
                     {currencySign} მდე
                   </p>

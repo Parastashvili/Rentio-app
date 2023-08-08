@@ -106,8 +106,8 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
             <p>დრიური ფასი</p>
             <p>ფასი ჯამში</p>
           </Basket>
-          {basket.map((data) => (
-            <Basket key={data.id}>
+          {basket.map((data, index) => (
+            <Basket key={index}>
               <div className="imgcont">
                 <Image preview={false} width={80} height={80} src={data.img} />
                 <p>{data.name.ka}</p>

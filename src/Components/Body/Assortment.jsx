@@ -140,9 +140,6 @@ const Outer = styled.div`
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(415px, 1fr));
-  /* @media screen and (max-width: 750px) {
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-} */
   justify-content: center;
   align-items: center;
   grid-gap: 15px;
@@ -159,7 +156,9 @@ const Card = styled.div`
   align-items: center;
   padding: 5px 10px;
   position: relative;
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 864px) {
+    width: 80%;
+    height: 130px;
   }
   .desc {
     width: 180px;
@@ -167,6 +166,9 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media screen and (max-width: 864px) {
+      width: calc(100% - 150px);
+    }
     .name {
       color: #000000;
       font-family: "Noto Sans Georgian", sans-serif;
@@ -179,9 +181,11 @@ const Card = styled.div`
       top: 20px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 750px) {
-        top: 180px;
-        left: 10px;
+      @media screen and (max-width: 864px) {
+        top: 5px;
+        left: 150px;
+        height: 22px;
+        font-size: 16px;
       }
     }
     .spec {
@@ -193,13 +197,15 @@ const Card = styled.div`
       text-decoration: none;
       position: absolute;
       height: 120px;
-      width: 160px;
       top: 65px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 750px) {
-        top: 220px;
-        left: 10px;
+      padding-right: 10px;
+      @media screen and (max-width: 864px) {
+        top: 35px;
+        left: 150px;
+        height: 55px;
+        font-size: 12px;
       }
     }
     .pricee {
@@ -214,9 +220,11 @@ const Card = styled.div`
       top: 190px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 750px) {
-        top: 300px;
-        left: 10px;
+      @media screen and (max-width: 864px) {
+        top: 90px;
+        left: 150px;
+        height: 70px;
+        font-size: 14px;
       }
     }
     .btn {
@@ -235,12 +243,12 @@ const Card = styled.div`
       top: 220px;
       left: 59%;
       overflow: hidden;
-      @media screen and (max-width: 750px) {
-        top: 320px;
-        left: 10px;
-      }
       &:hover {
         opacity: 0.7;
+      }
+      @media screen and (max-width: 864px) {
+        top: 110px;
+        left: 150px;
       }
     }
   }
@@ -255,6 +263,10 @@ const Card = styled.div`
     margin-right: 10px;
     &:hover {
       scale: 1.05;
+    }
+    @media screen and (max-width: 864px) {
+      width: 130px;
+      height: 130px;
     }
   }
 `;

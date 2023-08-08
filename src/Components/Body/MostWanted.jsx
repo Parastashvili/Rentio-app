@@ -58,8 +58,9 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
       <Splide
         options={{
           type: "loop",
-          fixedWidth: "180px",
-          height: "280px",
+          rewind: true,
+          autoWidth: true,
+          perPage: 1,
         }}
       >
         {firebaseData.map((data) => (

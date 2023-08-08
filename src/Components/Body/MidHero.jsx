@@ -78,6 +78,7 @@ const Mid = styled.div`
     font-weight: 700;
     line-height: 34px;
     background-color: rgb(243, 243, 243);
+    text-transform: capitalize;
     @media screen and (max-width: 600px) {
       font-size: 20px;
     }

@@ -84,6 +84,7 @@ const Text = styled.div`
   font-weight: 700;
   line-height: 34px;
   text-align: center;
+  text-transform: capitalize;
   @media screen and (max-width: 600px) {
     font-size: 20px;
   }

@@ -3,30 +3,29 @@ import icon1 from "../../assets/contact/del.svg";
 import icon2 from "../../assets/contact/crown.svg";
 import icon3 from "../../assets/contact/guar.svg";
 import styled from "styled-components";
-export default function Delivery() {
+import { languages } from "../../languages";
+export default function Delivery(props) {
   return (
     <Cont>
       <div className="innerdiv">
         <img src={icon1} alt="" />
         <div className="textCont">
-          <p className="maintext">მიწოდება</p>
-          <p className="text">
-            100₾+ შეკვეთაზე მოქმედებს უფასო მიწოდების სერვისი
-          </p>
+          <p className="maintext">{languages[props.lang].delivery}</p>
+          <p className="text">{languages[props.lang].delivery2}</p>
         </div>
       </div>
       <div className="innerdiv">
         <img src={icon2} alt="" />
         <div className="textCont">
-          <p className="maintext">ხარისხი</p>
-          <p className="text">ყველა პროდუქტი არის უმაღლესი ხარისხის </p>
+          <p className="maintext">{languages[props.lang].quality}</p>
+          <p className="text">{languages[props.lang].quality2}</p>
         </div>
       </div>
       <div className="innerdiv">
         <img src={icon3} alt="" />
         <div className="textCont">
-          <p className="maintext">გარანტია</p>
-          <p className="text">ყველა პროდუქტი არის საწარმოს გარანტიაზე </p>
+          <p className="maintext">{languages[props.lang].guarantee}</p>
+          <p className="text">{languages[props.lang].guarantee2}</p>
         </div>
       </div>
     </Cont>
@@ -77,6 +76,7 @@ const Cont = styled.div`
         font-size: 22px;
         font-weight: 600;
         line-height: 36px;
+        text-transform: capitalize;
       }
       .text {
         color: #ffffff;
@@ -84,6 +84,7 @@ const Cont = styled.div`
         font-size: 13px;
         font-weight: 300;
         line-height: 18px;
+        text-transform: capitalize;
       }
     }
   }

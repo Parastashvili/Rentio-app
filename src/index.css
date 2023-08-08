@@ -101,7 +101,7 @@ section {
 }
 body {
   line-height: 1;
-  background-color: rgb(238, 238, 238, 0.7);
+  background-color: #eeeeeeb3;
   width: 100vw;
   overflow-x: hidden;
 }

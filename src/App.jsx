@@ -10,6 +10,7 @@ import "./App.css";
 import MidHero from "./Components/Body/MidHero";
 import Brands from "./Components/Body/Brands";
 import Delivery from "./Components/Body/Delivery";
+import SectionHeader from "./Styled/SectionHeader";
 function App() {
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
@@ -56,11 +57,13 @@ function App() {
       />
       <HeaderNavigation />
       <HeaderSlider />
+      <SectionHeader>ყველაზე მოთხოვნადი</SectionHeader>
       <MostWanted
         lang={language}
         currencyVal={currency}
         currencySign={currencySign}
       />
+      <SectionHeader>ყველა ინსტრუმენტი</SectionHeader>
       <Assortment
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}

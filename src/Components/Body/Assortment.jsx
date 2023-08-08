@@ -95,7 +95,6 @@ const Assortment = ({
           ))}
         </Grid>
       </Box> */}
-      <p className="sectionName">ყველა ინსტრუმენტი</p>
       <CardContainer>
         {wholeAssortment.map((data) => (
           <Card key={data.id}>
@@ -125,25 +124,18 @@ const Assortment = ({
 export default Assortment;
 const Outer = styled.div`
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto auto 100px auto;
-  padding: 0 15px;
-  .sectionName {
-    color: #000000;
-    font-family: "Noto Sans Georgian", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    padding: 20px 50px;
-  }
+  overflow: hidden;
 `;
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(415px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   justify-content: center;
   align-items: center;
-  grid-gap: 15px;
-  padding: 0 10px;
+  gap: 10px;
+  padding: 20px;
+  position: relative;
 `;
 const Card = styled.div`
   background-color: rgb(256, 256, 256, 1);
@@ -151,14 +143,12 @@ const Card = styled.div`
   overflow: hidden;
   margin: auto;
   display: flex;
-  width: 400px;
+  width: 100%;
   height: 250px;
   align-items: center;
-  padding: 5px 10px;
+  justify-content: center;
   position: relative;
   @media screen and (max-width: 864px) {
-    width: 80%;
-    height: 130px;
   }
   .desc {
     width: 180px;
@@ -224,7 +214,7 @@ const Card = styled.div`
         top: 90px;
         left: 150px;
         height: 70px;
-        font-size: 14px;
+        font-size: 13px;
       }
     }
     .btn {

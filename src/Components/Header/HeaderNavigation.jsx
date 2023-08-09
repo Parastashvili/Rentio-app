@@ -15,6 +15,7 @@ import {
   SmileOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { languages } from "../../languages";
 export default function HeaderNavigation({ lang }) {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -33,27 +34,33 @@ export default function HeaderNavigation({ lang }) {
     };
   }
   const ham = [
-    getItem("მთავარი", "sub1", <RollbackOutlined />),
-    getItem("ინსტრუმენტები", "sub2", <ToolOutlined />, [
-      getItem("ელექტრო ინსტრუმენტები", "5"),
-      getItem("სამშენებლო მოწყობილობები", "6"),
-      getItem("საწმენდი ტექნიკა", "7"),
-      getItem("სამღებრო ინსტრუმენტები", "8"),
-      getItem("ხელის ინსტრუმენტები", "9"),
+    getItem(`${languages[lang].menu.home}`, "sub1", <RollbackOutlined />),
+    getItem(`${languages[lang].menu.tools.main}`, "sub2", <ToolOutlined />, [
+      getItem(`${languages[lang].menu.tools.electric}`, "5"),
+      getItem(`${languages[lang].menu.tools.build}`, "6"),
+      getItem(`${languages[lang].menu.tools.cleaning}`, "7"),
+      getItem(`${languages[lang].menu.tools.paint}`, "8"),
+      getItem(`${languages[lang].menu.tools.handtools}`, "9"),
     ]),
-    getItem("სახლი და ეზო", "sub3", <HomeOutlined />, [
-      getItem("ბაღის მოვლა", "10"),
-      getItem("სარწყავი მილები", "11"),
-      getItem("ინსტრუმენტების ყუთები", "12"),
-      getItem("ბაღის ჭურჭელი", "13"),
+    getItem(
+      `${languages[lang].menu.homeandgarden.main}`,
+      "sub3",
+      <HomeOutlined />,
+      [
+        getItem(`${languages[lang].menu.homeandgarden.garden}`, "10"),
+        getItem(`${languages[lang].menu.homeandgarden.water}`, "11"),
+        getItem(`${languages[lang].menu.homeandgarden.box}`, "12"),
+        getItem(`${languages[lang].menu.homeandgarden.gardenfurn}`, "13"),
+      ]
+    ),
+    getItem(`${languages[lang].menu.auto.main}`, "sub4", <CarOutlined />, [
+      getItem(`${languages[lang].menu.auto.manipulator}`, "14"),
+      getItem(`${languages[lang].menu.auto.tvitmcleli}`, "15"),
+      getItem(`${languages[lang].menu.auto.trailer}`, "16"),
     ]),
-    getItem("ავტო ტექნიკა", "sub4", <CarOutlined />, [
-      getItem("ამწე მანიპულატორი", "14"),
-      getItem("თვითმცლელი", "15"),
-    ]),
-    getItem("ჩვენს შესახებ", "sub5", <SmileOutlined />),
-    getItem("პირობები", "sub7", <AuditOutlined />),
-    getItem("კონტაქტი", "sub8", <ContactsOutlined />),
+    getItem(`${languages[lang].menu.about}`, "sub5", <SmileOutlined />),
+    getItem(`${languages[lang].menu.policy}`, "sub7", <AuditOutlined />),
+    getItem(`${languages[lang].menu.contact}`, "sub8", <ContactsOutlined />),
   ];
   const rootSubmenuKeys = ["sub2", "sub3", "sub4"];
   const [openKeys, setOpenKeys] = useState(["sub1"]);
@@ -67,51 +74,55 @@ export default function HeaderNavigation({ lang }) {
   };
   const tools = [
     {
-      label: "ელექტრო ინსტრუმენტები",
+      label: `${languages[lang].menu.tools.electric}`,
       key: "1",
     },
     {
-      label: "სამშენებლო მოწყობილობები",
+      label: `${languages[lang].menu.tools.build}`,
       key: "2",
     },
     {
-      label: "საწმენდი ტექნიკა",
+      label: `${languages[lang].menu.tools.cleaning}`,
       key: "3",
     },
     {
-      label: "სამღებრო ინსტრუმენტები",
+      label: `${languages[lang].menu.tools.paint}`,
       key: "4",
     },
     {
-      label: "ხელის ინსტრუმენტები",
+      label: `${languages[lang].menu.tools.handtools}`,
       key: "5",
     },
   ];
   const cars = [
     {
-      label: "ამწე მანიპულატორი",
+      label: `${languages[lang].menu.auto.manipulator}`,
       key: "1",
     },
     {
-      label: "თვითმცლელი",
+      label: `${languages[lang].menu.auto.tvitmcleli}`,
       key: "2",
+    },
+    {
+      label: `${languages[lang].menu.auto.trailer}`,
+      key: "3",
     },
   ];
   const home = [
     {
-      label: "ბაღის მოვლა",
+      label: `${languages[lang].menu.homeandgarden.garden}`,
       key: "1",
     },
     {
-      label: "სარწყავი მილები",
+      label: `${languages[lang].menu.homeandgarden.water}`,
       key: "2",
     },
     {
-      label: "ინსტრუმენტების ყუთები",
+      label: `${languages[lang].menu.homeandgarden.box}`,
       key: "3",
     },
     {
-      label: "ბაღის ჭურჭელი",
+      label: `${languages[lang].menu.homeandgarden.gardenfurn}`,
       key: "3",
     },
   ];
@@ -119,7 +130,7 @@ export default function HeaderNavigation({ lang }) {
     <Nav>
       <div className="classic">
         <a className="navtext" href="">
-          მთავარი
+          {languages[lang].menu.home}
         </a>
         <Dropdown
           menu={{
@@ -128,7 +139,7 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">ინსტრუმენტები</p>
+              <p className="navtext">{languages[lang].menu.tools.main}</p>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -140,7 +151,9 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">სახლი და ეზო</p>
+              <p className="navtext">
+                {languages[lang].menu.homeandgarden.main}
+              </p>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -152,22 +165,27 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">ავტო ტექნიკა</p>
+              <p className="navtext">{languages[lang].menu.auto.main}</p>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
         </Dropdown>
         <a className="navtext" href="">
-          ჩვენს შესახებ
+          {languages[lang].menu.about}
         </a>
         <a className="navtext" href="">
-          პირობები
+          {languages[lang].menu.policy}
         </a>
         <a className="navtext" href="">
-          კონტაქტი
+          {languages[lang].menu.contact}
         </a>
       </div>
-      <Drawer title="ნავიგაცია" placement="right" onClose={onClose} open={open}>
+      <Drawer
+        title={languages[lang].nav}
+        placement="right"
+        onClose={onClose}
+        open={open}
+      >
         <Menu
           mode="inline"
           openKeys={openKeys}

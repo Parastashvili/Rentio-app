@@ -4,13 +4,14 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxBlfVCJNOuuKcBscfh389mOWdPXpQyNQ",
-  authDomain: "rentio-test.firebaseapp.com",
-  projectId: "rentio-test",
-  storageBucket: "rentio-test.appspot.com",
-  messagingSenderId: "693922226698",
-  appId: "1:693922226698:web:11661ef0515c0f74dbb5f3",
-  measurementId: "G-158FCWF38X",
+  apiKey: import.meta.env.VITE_REACT_APP_FIREBASE_KEY,
+  authDomain: "rentio-32618.firebaseapp.com",
+  databaseURL: "https://rentio-32618-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "rentio-32618",
+  storageBucket: "rentio-32618.appspot.com",
+  messagingSenderId: "434474456812",
+  appId: "1:434474456812:web:f52cad82318b93ddafb7c9",
+  measurementId: "G-RV12EZ3FF2"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -23,7 +23,6 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
     };
     fetchData();
     // Live update code
-
     // const unsub = onSnapshot(
     //   collection(db, "carusell"),
     //   (snapShot) => {
@@ -83,13 +82,11 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
                 <div className="pricecont">
                   <p className="itemPrice">
                     {languages[lang].price}
-                    {":"}
+                    {": "}
                     {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                    {currencySign}
-                    {languages[lang].from} {"- "}
+                    {currencySign} {languages[lang].from} {"- "}
                     {Math.ceil(data.dailyprice * currencyVal)}
-                    {currencySign}
-                    {languages[lang].to}
+                    {currencySign} {languages[lang].to}
                   </p>
                 </div>
               </Dsc>

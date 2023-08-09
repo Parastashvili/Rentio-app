@@ -57,7 +57,7 @@ function App() {
         badge={basketQuantity}
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
-      <HeaderNavigation />
+      <HeaderNavigation lang={language} />
       <HeaderSlider />
       <SectionHeader>{languages[language].mostwanted}</SectionHeader>
       <MostWanted

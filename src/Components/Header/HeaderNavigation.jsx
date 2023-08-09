@@ -15,7 +15,7 @@ import {
   SmileOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
-export default function HeaderNavigation() {
+export default function HeaderNavigation({ lang }) {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);

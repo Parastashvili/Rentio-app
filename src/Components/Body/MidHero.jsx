@@ -5,14 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 export default function MidHero({ lang, currencyVal, currencySign }) {
-  const template = [
-    {
-    },
-    {
-    },
-    {
-    },
-  ];
+  const template = [{}, {}, {}];
   const [firebaseData, setFirebaseData] = useState(template);
   useEffect(() => {
     const fetchData = async () => {
@@ -241,6 +234,7 @@ const Mid = styled.div`
       top: 50px;
       overflow: hidden;
       height: 100px;
+      padding-right: 10px;
     }
     .productprice2 {
       color: #ffffff;

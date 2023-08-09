@@ -8,10 +8,17 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
   const [currency, setCurrency] = useState("₾");
   const getLang = localStorage.getItem("language");
   const [lang, setLang] = useState(getLang ? JSON.parse(getLang) : "ka");
+  const defaultCurr = JSON.parse(localStorage.getItem("currencySign"));
+  const defaultLang = JSON.parse(localStorage.getItem("language"));
   const onClickCur = ({ key }) => {
+    if (key === "₾") {
+      currencySet(1);
+      currencySignSet("₾");
+    } else {
+      currencySet(1 / 2.6);
+      currencySignSet("$");
+    }
     setCurrency(key);
-    currencySet(1 / 2.6);
-    currencySignSet("$");
   };
   const onClickLan = ({ key }) => {
     setLang(key);
@@ -21,10 +28,12 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
     {
       label: `₾ - ${languages[lang].lari}`,
       key: "₾",
+      index: "1",
     },
     {
       label: `$ - ${languages[lang].dollar}`,
       key: "$",
+      index: "2",
     },
   ];
   const Language = [
@@ -50,7 +59,7 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
             menu={{
               items: Currency,
               selectable: true,
-              defaultSelectedKeys: ["₾"],
+              defaultSelectedKeys: defaultCurr,
               onClick: onClickCur,
             }}
           >
@@ -65,7 +74,7 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
             menu={{
               items: Language,
               selectable: true,
-              defaultSelectedKeys: ["KA"],
+              defaultSelectedKeys: defaultLang,
               onClick: onClickLan,
             }}
           >

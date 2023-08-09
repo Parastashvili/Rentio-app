@@ -21,14 +21,20 @@ function App() {
     setLanguage(e);
     localStorage.setItem("language", JSON.stringify(e));
   };
-  const [currency, setCurrency] = useState(1);
+  const getCurr = localStorage.getItem("currency");
+  const [currency, setCurrency] = useState(getCurr ? JSON.parse(getCurr) : 1);
   const changeCurrency = (e) => {
     setCurrency(e);
+    localStorage.setItem("currency", JSON.stringify(e));
   };
+  const getCurrSign = localStorage.getItem("currencySign");
+  const [currencySign, setCurrencySign] = useState(
+    getCurrSign ? JSON.parse(getCurrSign) : "₾"
+  );
   const changeCurrencySign = (e) => {
     setCurrencySign(e);
+    localStorage.setItem("currencySign", JSON.stringify(e));
   };
-  const [currencySign, setCurrencySign] = useState("₾");
   const existingBasket = localStorage.getItem("basket");
   const [basketQuantity, setBasketQuantity] = useState(
     existingBasket ? JSON.parse(existingBasket).length : 0

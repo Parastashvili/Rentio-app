@@ -134,7 +134,7 @@ const Dsc = styled.div`
     line-height: 24px;
     padding: 5px 10px;
     width: 200px;
-    height: 15px;
+    height: 17px;
     overflow: hidden;
   }
   .itemDsc {
@@ -144,7 +144,7 @@ const Dsc = styled.div`
     font-weight: 300;
     line-height: 15px;
     padding: 5px 10px;
-    width: 185px;
+    width: 154px;
     height: 70px;
     overflow: hidden;
   }

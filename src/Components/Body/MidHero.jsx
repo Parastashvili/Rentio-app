@@ -1,54 +1,115 @@
 import React from "react";
 import { styled } from "styled-components";
-import sakfrechi from "../../assets/products/sakrechi.jpg";
-import mili from "../../assets/products/mili.jpg";
-import shesawamli from "../../assets/products/shesawamli.jpg";
 import { languages } from "../../languages";
-export default function MidHero(props) {
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useEffect, useState } from "react";
+export default function MidHero({ lang, currencyVal, currencySign }) {
+  const template = [
+    {
+    },
+    {
+    },
+    {
+    },
+  ];
+  const [firebaseData, setFirebaseData] = useState(template);
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "midderHero"));
+        querySnapshot.forEach((doc) => {
+          list.push(doc.data());
+        });
+        setFirebaseData(list);
+      } catch (error) {}
+    };
+    fetchData();
+    console.log();
+  }, []);
   return (
     <Mid>
-      <p className="sectionHeader">{languages[props.lang].midderhero}</p>
+      <p className="sectionHeader">{languages[lang].midderhero}</p>
       <div className="left">
-        <img className="productimg" src={sakfrechi} alt="product image" />
+        <img
+          className="productimg"
+          src={firebaseData[0].img}
+          alt="product image"
+        />
         <div className="dscdiv">
           <h3 className="productname">
-            გაზონის საკრეჭი მანქანა BOSCH ROTAK 32
+            {lang === "en"
+              ? firebaseData[0].nameEn
+              : lang === "ru"
+              ? firebaseData[0].nameRus
+              : firebaseData[0].nameGeo}
           </h3>
           <p className="producdsc">
-            შეთავაზებაშია გაზონის საკრეჭი მანქანა BOSCH ROTAK 32. ბალახის
-            საკრეჭი რომელიც გარანტირებულად მძლავრად მუშაობს, მაღალსიჩქარიანი
-            ძრავის დახმარებით. გააჩნია ერგონომიული დიზაინი და აქვს
-            გადახურებისგან დაცვის ფუნქცია. ბალახის საჭრელი იდეალურადაა აგებული
-            და მარტივად სამართავია.
+            {lang === "en"
+              ? firebaseData[0].dscEn
+              : lang === "ru"
+              ? firebaseData[0].dscRus
+              : firebaseData[0].dscGeo}
           </p>
-          <h4 className="productprice">390 ₾</h4>
+          <h4 className="productprice">
+            {firebaseData[0].dailyprice * currencyVal} {currencySign}
+          </h4>
         </div>
       </div>
       <div className="right">
         <div className="right1">
-          <img className="productimg2" src={mili} alt="product image" />
+          <img
+            className="productimg2"
+            src={firebaseData[1].img}
+            alt="product image"
+          />
           <div className="dscdiv2">
-            <h3 className="productname2">სარწყავი მილი 50 მ 3/4 ინჩი</h3>
+            <h3 className="productname2">
+              {lang === "en"
+                ? firebaseData[1].nameEn
+                : lang === "ru"
+                ? firebaseData[1].nameRus
+                : firebaseData[1].nameGeo}
+            </h3>
             <p className="producdsc2">
-              სარწყავი მილი 50 მ 3/4 ინჩი PERFOMANCE+ KARCHER <br></br>
-              <br></br> ზომა: 390X390X250 მმ <br></br>წონა: 11.5 კგ <br></br>
-              დიამეტრი: 3/4" <br></br>მილის სიგრძე: 50 მ
+              {lang === "en"
+                ? firebaseData[1].dscEn
+                : lang === "ru"
+                ? firebaseData[1].dscRus
+                : firebaseData[1].dscGeo}
             </p>
-            <h4 className="productprice2">55 ₾</h4>
+            <h4 className="productprice2">
+              {" "}
+              {firebaseData[1].dailyprice * currencyVal} {currencySign}
+            </h4>
           </div>
         </div>
         <div className="right2">
-          <img className="productimg2" src={shesawamli} alt="product image" />
+          <img
+            className="productimg2"
+            src={firebaseData[2].img}
+            alt="product image"
+          />
           <div className="dscdiv2">
-            <h3 className="productname2">ხელის მექანიკური შესაწამლი</h3>
+            <h3 className="productname2">
+              {lang === "en"
+                ? firebaseData[2].nameEn
+                : lang === "ru"
+                ? firebaseData[2].nameRus
+                : firebaseData[2].nameGeo}
+            </h3>
             <p className="producdsc2">
-              ინგკოს პროდუქცია წარმოებულია ჩინეთში. ინგკო მრავალი წელია
-              მოღვაწეობს მსოფლიო ბაზარზე. მისი მიზანია პროფესიონალური
-              ხელსაწყოები გახადოს ყველასთვის ხელმისაწვდომი. პროდუქცია უნდა იყოს
-              ტექნიკურად, ვიზუალურად, ფუნქციურად სრულყოფილი და ასრულებდეს
-              ნებისმიერ სამუშაოს ეფექტიანად.
+              {lang === "en"
+                ? firebaseData[2].dscEn
+                : lang === "ru"
+                ? firebaseData[2].dscRus
+                : firebaseData[2].dscGeo}
             </p>
-            <h4 className="productprice2">125 ₾</h4>
+            <h4 className="productprice2">
+              {" "}
+              {firebaseData[2].dailyprice * currencyVal} {currencySign}
+            </h4>
           </div>
         </div>
       </div>

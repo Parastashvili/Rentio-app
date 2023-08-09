@@ -73,7 +73,11 @@ function App() {
         currencySign={currencySign}
       />
       <Delivery lang={language} />
-      <MidHero lang={language} />
+      <MidHero
+        lang={language}
+        currencyVal={currency}
+        currencySign={currencySign}
+      />
       <Brands lang={language} />
       <Footer basketQuantity2={basketQuantity2} />
     </>

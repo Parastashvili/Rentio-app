@@ -46,7 +46,7 @@ export default function MidHero({ lang, currencyVal, currencySign }) {
               : firebaseData[0].dscGeo}
           </p>
           <h4 className="productprice">
-            {firebaseData[0].dailyprice * currencyVal} {currencySign}
+            {Math.ceil(firebaseData[0].dailyprice * currencyVal)} {currencySign}
           </h4>
         </div>
       </div>
@@ -74,7 +74,8 @@ export default function MidHero({ lang, currencyVal, currencySign }) {
             </p>
             <h4 className="productprice2">
               {" "}
-              {firebaseData[1].dailyprice * currencyVal} {currencySign}
+              {Math.ceil(firebaseData[1].dailyprice * currencyVal)}{" "}
+              {currencySign}
             </h4>
           </div>
         </div>
@@ -101,7 +102,8 @@ export default function MidHero({ lang, currencyVal, currencySign }) {
             </p>
             <h4 className="productprice2">
               {" "}
-              {firebaseData[2].dailyprice * currencyVal} {currencySign}
+              {Math.ceil(firebaseData[2].dailyprice * currencyVal)}
+              {currencySign}
             </h4>
           </div>
         </div>
@@ -110,7 +112,7 @@ export default function MidHero({ lang, currencyVal, currencySign }) {
   );
 }
 const Mid = styled.div`
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 10px;
   padding: 50px 10px 30px 10px;
   position: relative;
@@ -133,6 +135,8 @@ const Mid = styled.div`
     line-height: 34px;
     background-color: rgb(243, 243, 243);
     text-transform: capitalize;
+    padding: 0 20px;
+    text-align: center;
     @media screen and (max-width: 600px) {
       font-size: 20px;
     }

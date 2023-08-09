@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { useState } from "react";
-
+import { languages } from "../../languages";
 const Header = ({ currencySet, currencySignSet, languageSet }) => {
   const [currency, setCurrency] = useState("₾");
   const getLang = localStorage.getItem("language");
@@ -19,35 +19,32 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
   };
   const Currency = [
     {
-      label: "₾ - ლარი",
+      label: `₾ - ${languages[lang].lari}`,
       key: "₾",
     },
     {
-      label: "$ - დოლარი",
+      label: `$ - ${languages[lang].dollar}`,
       key: "$",
     },
   ];
   const Language = [
     {
-      label: "ქართული",
+      label: `${languages[lang].geo}`,
       key: "ka",
     },
     {
-      label: "ინგლისური",
+      label: `${languages[lang].eng}`,
       key: "en",
     },
     {
-      label: "რუსული",
+      label: `${languages[lang].rus}`,
       key: "ru",
     },
   ];
   return (
     <Headmain>
       <div>
-        <p className="headertext promo">
-          აქ თქვენ შეგიძლიათ იქირაოთ ნებისმიერი თქვენითვის საჭირო ხელსაწყო
-          რამდენი ხნითაც გნებავთ
-        </p>
+        <p className="headertext promo">{languages[lang].promo}</p>
         <div className="dropdown">
           <Dropdown
             menu={{
@@ -58,7 +55,9 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
             }}
           >
             <Space>
-              <p className="headertext">{currency} - ვალუტა</p>
+              <p className="headertext">
+                {currency} - {languages[lang].currency}
+              </p>
               <DownOutlined style={{ color: "#FFFFFF", marginLeft: "-20px" }} />
             </Space>
           </Dropdown>
@@ -72,7 +71,9 @@ const Header = ({ currencySet, currencySignSet, languageSet }) => {
           >
             <a onClick={(e) => e.preventDefault()}>
               <Space>
-                <p className="headertext">{lang} - ენა</p>
+                <p className="headertext">
+                  {lang} - {languages[lang].lang}
+                </p>
                 <DownOutlined
                   style={{ color: "#FFFFFF", marginLeft: "-20px" }}
                 />
@@ -111,7 +112,7 @@ const Headmain = styled.div`
     font-size: 12px;
     font-weight: 400;
     line-height: 24px;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
   .promo {
     @media screen and (max-width: 760px) {

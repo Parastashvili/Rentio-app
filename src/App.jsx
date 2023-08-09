@@ -51,6 +51,7 @@ function App() {
         currencySet={changeCurrency}
         currencySignSet={changeCurrencySign}
         languageSet={changeLanguage}
+        lang={language}
       />
       <HeaderLogo
         badge={basketQuantity}

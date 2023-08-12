@@ -5,6 +5,7 @@ import { Dropdown, Space } from "antd";
 import { Turn as Hamburger } from "hamburger-react";
 import { Drawer } from "antd";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ToolOutlined,
   HomeOutlined,
@@ -129,9 +130,9 @@ export default function HeaderNavigation({ lang }) {
   return (
     <Nav>
       <div className="classic">
-        <a className="navtext" href="">
+        <Link className="navtext" to="/">
           {languages[lang].menu.home}
-        </a>
+        </Link>
         <Dropdown
           menu={{
             items: tools,
@@ -139,7 +140,9 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">{languages[lang].menu.tools.main}</p>
+              <Link className="navtext" to="/tools">
+                {languages[lang].menu.tools.main}
+              </Link>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -176,9 +179,9 @@ export default function HeaderNavigation({ lang }) {
         <a className="navtext" href="">
           {languages[lang].menu.policy}
         </a>
-        <a className="navtext" href="">
+        <Link className="navtext" to="/contact">
           {languages[lang].menu.contact}
-        </a>
+        </Link>
       </div>
       <Drawer
         title={languages[lang].nav}

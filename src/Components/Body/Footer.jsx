@@ -60,7 +60,10 @@ export default function Footer() {
           <div></div>
         </div>
       </div>
-      sdasd
+      <div style={{ marginTop: "-30px " }}>
+        <p className="by">ყველა უფლება დაცულია</p>
+        <p className="by">Designed and Developed By Levan Parastashvili</p>
+      </div>
     </Foot>
   );
 }
@@ -69,6 +72,15 @@ const Foot = styled.div`
   width: 100%;
   height: 270px;
   background-color: #393e46;
+  .by {
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    line-height: 18px;
+  }
   .wrapper {
     height: 100%;
     display: flex;

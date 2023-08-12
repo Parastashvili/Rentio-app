@@ -49,9 +49,14 @@ export default function Footer() {
           <br />
         </div>
         <div>
-          <h3>მისამართი</h3>
-          <p>ჩვენი მისამართია ლილოს დასახლება</p>
-
+          <h3 className="mainText">მისამართი</h3>
+          <p className="navigationtext" style={{ maxWidth: "200px" }}>
+            ჩვენი მისამართია: <br /> ლილოს დასახლება
+          </p>
+          <p className="navigationtext" style={{ maxWidth: "200px" }}>
+            <br />
+            ანგარისსწორება შესაძლებელია როგორც ონლაინ ასევე კურიერთან
+          </p>
           <div></div>
         </div>
       </div>
@@ -111,8 +116,6 @@ const Foot = styled.div`
       align-items: center;
       justify-content: start;
       gap: 10px;
-    }
-    .contactIcons {
     }
     .icons {
       color: #ffffff;

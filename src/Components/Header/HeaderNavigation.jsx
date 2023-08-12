@@ -154,9 +154,9 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">
+              <Link className="navtext" to="/homeandgarden">
                 {languages[lang].menu.homeandgarden.main}
-              </p>
+              </Link>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -168,17 +168,19 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <p className="navtext">{languages[lang].menu.auto.main}</p>
+              <Link className="navtext" to="/car-rental">
+                {languages[lang].menu.auto.main}
+              </Link>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
         </Dropdown>
-        <a className="navtext" href="">
+        <Link className="navtext" to="/about">
           {languages[lang].menu.about}
-        </a>
-        <a className="navtext" href="">
+        </Link>
+        <Link className="navtext" to="/terms">
           {languages[lang].menu.policy}
-        </a>
+        </Link>
         <Link className="navtext" to="/contact">
           {languages[lang].menu.contact}
         </Link>

@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Home";
 import Product from "./Product";
+import Terms from "./Terms";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
           <Route path="/tools" element={<Product />} />
           <Route path="/car-rental" element={<Product />} />
           <Route path="/homeandgarden" element={<Product />} />
-          <Route path="/terms" element={<Product />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/about" element={<Product />} />
           <Route path="/contact" element={<Product />} />
         </Routes>

@@ -4,6 +4,10 @@ import {
   CarOutlined,
   AuditOutlined,
   SmileOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
+  WhatsAppOutlined,
+  PhoneOutlined,
 } from "@ant-design/icons";
 import { styled } from "styled-components";
 export default function Footer() {
@@ -35,19 +39,30 @@ export default function Footer() {
             ჩვენი სამუშაო საათებია: <br /> ორშაბათი - კვირა <br /> 08:00-დან
             20:00-მდე
           </div>
+          <div className="contactIcons">
+            <FacebookOutlined className="icons" />
+            <InstagramOutlined className="icons" />
+            <WhatsAppOutlined className="icons" />
+          </div>
+          <PhoneOutlined className="icons" />
+          <p className="mobile">557 60 23 53</p>
+          <br />
         </div>
         <div>
           <h3>მისამართი</h3>
           <p>ჩვენი მისამართია ლილოს დასახლება</p>
+
+          <div></div>
         </div>
       </div>
+      sdasd
     </Foot>
   );
 }
 
 const Foot = styled.div`
   width: 100%;
-  height: 220px;
+  height: 270px;
   background-color: #393e46;
   .wrapper {
     height: 100%;
@@ -57,6 +72,15 @@ const Foot = styled.div`
     max-width: 1200px;
     margin: auto;
     padding-top: 30px;
+    .mobile {
+      color: #ffffff;
+      font-family: "Noto Sans Georgian", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      text-decoration: none;
+      display: inline;
+    }
     .navigationtext {
       color: #ffffff;
       font-family: "Noto Sans Georgian", sans-serif;
@@ -87,6 +111,18 @@ const Foot = styled.div`
       align-items: center;
       justify-content: start;
       gap: 10px;
+    }
+    .contactIcons {
+    }
+    .icons {
+      color: #ffffff;
+      scale: 2;
+      margin: 20px 30px 5px 10px;
+      transition: ease 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: #febd18;
+      }
     }
   }
 `;

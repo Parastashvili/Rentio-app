@@ -40,29 +40,37 @@ export default function HeaderNavigation({ lang }) {
     getItem(`${languages[lang].menu.home}`, "/", <RollbackOutlined />),
     getItem(`${languages[lang].menu.tools.main}`, "tools", <ToolOutlined />, [
       getItem(`${languages[lang].menu.tools.electric}`, "electric"),
-      getItem(`${languages[lang].menu.tools.build}`, "contact"),
-      getItem(`${languages[lang].menu.tools.cleaning}`, "7"),
-      getItem(`${languages[lang].menu.tools.paint}`, "8"),
-      getItem(`${languages[lang].menu.tools.handtools}`, "9"),
+      getItem(`${languages[lang].menu.tools.build}`, "build"),
+      getItem(`${languages[lang].menu.tools.cleaning}`, "cleaning"),
+      getItem(`${languages[lang].menu.tools.paint}`, "paint"),
+      getItem(`${languages[lang].menu.tools.handtools}`, "handtools"),
     ]),
     getItem(
       `${languages[lang].menu.homeandgarden.main}`,
-      "sub3",
+      "car-rental",
       <HomeOutlined />,
       [
-        getItem(`${languages[lang].menu.homeandgarden.garden}`, "10"),
-        getItem(`${languages[lang].menu.homeandgarden.water}`, "11"),
-        getItem(`${languages[lang].menu.homeandgarden.box}`, "12"),
-        getItem(`${languages[lang].menu.homeandgarden.gardenfurn}`, "13"),
+        getItem(`${languages[lang].menu.homeandgarden.garden}`, "garden"),
+        getItem(`${languages[lang].menu.homeandgarden.water}`, "water"),
+        getItem(`${languages[lang].menu.homeandgarden.box}`, "box"),
+        getItem(
+          `${languages[lang].menu.homeandgarden.gardenfurn}`,
+          "gardenfurn"
+        ),
       ]
     ),
-    getItem(`${languages[lang].menu.auto.main}`, "sub4", <CarOutlined />, [
-      getItem(`${languages[lang].menu.auto.manipulator}`, "14"),
-      getItem(`${languages[lang].menu.auto.tvitmcleli}`, "15"),
-      getItem(`${languages[lang].menu.auto.trailer}`, "16"),
-    ]),
-    getItem(`${languages[lang].menu.policy}`, "sub7", <AuditOutlined />),
-    getItem(`${languages[lang].menu.contact}`, "sub8", <ContactsOutlined />),
+    getItem(
+      `${languages[lang].menu.auto.main}`,
+      "homeandgarden",
+      <CarOutlined />,
+      [
+        getItem(`${languages[lang].menu.auto.manipulator}`, "manipulator"),
+        getItem(`${languages[lang].menu.auto.tvitmcleli}`, "tvitmcleli"),
+        getItem(`${languages[lang].menu.auto.trailer}`, "trailer"),
+      ]
+    ),
+    getItem(`${languages[lang].menu.policy}`, "terms", <AuditOutlined />),
+    getItem(`${languages[lang].menu.contact}`, "contact", <ContactsOutlined />),
   ];
   const rootSubmenuKeys = ["sub2", "sub3", "sub4"];
   const [openKeys, setOpenKeys] = useState(["sub1"]);

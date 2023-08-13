@@ -15,9 +15,11 @@ import {
   AuditOutlined,
   SmileOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
 import { languages } from "../../languages";
 export default function HeaderNavigation({ lang }) {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -35,10 +37,10 @@ export default function HeaderNavigation({ lang }) {
     };
   }
   const ham = [
-    getItem(`${languages[lang].menu.home}`, "sub1", <RollbackOutlined />),
-    getItem(`${languages[lang].menu.tools.main}`, "sub2", <ToolOutlined />, [
-      getItem(`${languages[lang].menu.tools.electric}`, "5", <ToolOutlined />),
-      getItem(`${languages[lang].menu.tools.build}`, "6"),
+    getItem(`${languages[lang].menu.home}`, "/", <RollbackOutlined />),
+    getItem(`${languages[lang].menu.tools.main}`, "tools", <ToolOutlined />, [
+      getItem(`${languages[lang].menu.tools.electric}`, "electric"),
+      getItem(`${languages[lang].menu.tools.build}`, "contact"),
       getItem(`${languages[lang].menu.tools.cleaning}`, "7"),
       getItem(`${languages[lang].menu.tools.paint}`, "8"),
       getItem(`${languages[lang].menu.tools.handtools}`, "9"),
@@ -127,7 +129,7 @@ export default function HeaderNavigation({ lang }) {
     },
   ];
   const onClick = (e) => {
-    console.log(e.key);
+    navigate(e.key);
   };
   return (
     <Nav>
@@ -204,9 +206,7 @@ export default function HeaderNavigation({ lang }) {
             fontFamily: "Noto Sans Georgian",
           }}
           items={ham}
-          onTitleClick={console.log("2222")}
         />
-        {/* <Mennn /> */}
       </Drawer>
       <Ham>
         <Hamburger

@@ -15,7 +15,6 @@ export default function App() {
           <Route path="/car-rental" element={<Product />} />
           <Route path="/homeandgarden" element={<Product />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/about" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>

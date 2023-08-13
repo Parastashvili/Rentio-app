@@ -37,7 +37,7 @@ export default function HeaderNavigation({ lang }) {
   const ham = [
     getItem(`${languages[lang].menu.home}`, "sub1", <RollbackOutlined />),
     getItem(`${languages[lang].menu.tools.main}`, "sub2", <ToolOutlined />, [
-      getItem(`${languages[lang].menu.tools.electric}`, "5"),
+      getItem(`${languages[lang].menu.tools.electric}`, "5", <ToolOutlined />),
       getItem(`${languages[lang].menu.tools.build}`, "6"),
       getItem(`${languages[lang].menu.tools.cleaning}`, "7"),
       getItem(`${languages[lang].menu.tools.paint}`, "8"),
@@ -59,7 +59,6 @@ export default function HeaderNavigation({ lang }) {
       getItem(`${languages[lang].menu.auto.tvitmcleli}`, "15"),
       getItem(`${languages[lang].menu.auto.trailer}`, "16"),
     ]),
-    getItem(`${languages[lang].menu.about}`, "sub5", <SmileOutlined />),
     getItem(`${languages[lang].menu.policy}`, "sub7", <AuditOutlined />),
     getItem(`${languages[lang].menu.contact}`, "sub8", <ContactsOutlined />),
   ];
@@ -127,6 +126,9 @@ export default function HeaderNavigation({ lang }) {
       key: "3",
     },
   ];
+  const onClick = (e) => {
+    console.log(e.key);
+  };
   return (
     <Nav>
       <div className="classic">
@@ -175,9 +177,6 @@ export default function HeaderNavigation({ lang }) {
             </Space>
           </a>
         </Dropdown>
-        <Link className="navtext" to="/about">
-          {languages[lang].menu.about}
-        </Link>
         <Link className="navtext" to="/terms">
           {languages[lang].menu.policy}
         </Link>
@@ -192,6 +191,7 @@ export default function HeaderNavigation({ lang }) {
         open={open}
       >
         <Menu
+          onClick={onClick}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -204,7 +204,9 @@ export default function HeaderNavigation({ lang }) {
             fontFamily: "Noto Sans Georgian",
           }}
           items={ham}
+          onTitleClick={console.log("2222")}
         />
+        {/* <Mennn /> */}
       </Drawer>
       <Ham>
         <Hamburger

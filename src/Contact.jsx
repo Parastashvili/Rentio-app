@@ -5,6 +5,7 @@ import HeaderNavigation from "./Components/Header/HeaderNavigation";
 import Footer from "./Components/Body/Footer";
 import Map from "./Components/Body/Map";
 import "./App.css";
+import { styled } from "styled-components";
 function App() {
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
@@ -54,12 +55,43 @@ function App() {
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
       <HeaderNavigation lang={language} />
-
+      <Cont>
+        <p className="hours v1">სამუშაო გრაფიკი:</p>
+        <p className="hours v2">ორშაბათი - კვირა</p>
+        <p className="hours v2">08:00 - 20:00 </p>
+        <p className="hours v1">მისამართი:</p>
+        <p className="hours v2">ლილოს დასახლება მე-5 კვარტ. 1-ლი კორპ. </p>
+        <p className="hours v1">მობილური:</p>
+        <p className="hours v2">557 60 23 53</p>
+        <p className="hours v2">591 12 07 74</p>
+      </Cont>
       <Map />
-
       <Footer basketQuantity2={basketQuantity2} />
     </>
   );
 }
 
 export default App;
+const Cont = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  .hours {
+    color: #000000;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    line-height: 18px;
+  }
+  .v1 {
+    margin-top: 30px;
+  }
+  .v2 {
+    font-size: 17px;
+  }
+`;

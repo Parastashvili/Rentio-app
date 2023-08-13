@@ -1,7 +1,5 @@
 import { React, useMemo } from "react";
-
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
-
 const Map = () => {
   const containerStyle = {
     width: "90%",

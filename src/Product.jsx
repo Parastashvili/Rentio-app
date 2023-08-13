@@ -5,7 +5,7 @@ import HeaderNavigation from "./Components/Header/HeaderNavigation";
 import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
-function App() {
+function App(props) {
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
     getLang ? JSON.parse(getLang) : "ka"
@@ -57,6 +57,7 @@ function App() {
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
       <HeaderNavigation lang={language} />
+      {props.products}
       <Assortment
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}

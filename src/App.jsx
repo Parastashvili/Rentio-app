@@ -4,11 +4,13 @@ import Product from "./Product";
 import Terms from "./Terms";
 import Contact from "./Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SS from "./SS";
 export default function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/zz" element={<SS />} />
           <Route path="/" element={<Home />} />
           <Route path="/all-products" element={<Product />} />
           <Route path="/tools" element={<Product />}>

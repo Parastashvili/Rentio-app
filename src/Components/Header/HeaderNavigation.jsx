@@ -84,23 +84,23 @@ export default function HeaderNavigation({ lang }) {
   };
   const tools = [
     {
-      label: `${languages[lang].menu.tools.electric}`,
+      label: <a href="/electric">{languages[lang].menu.tools.electric}</a>,
       key: "1",
     },
     {
-      label: `${languages[lang].menu.tools.build}`,
+      label: <a href="/build">{languages[lang].menu.tools.build}</a>,
       key: "2",
     },
     {
-      label: `${languages[lang].menu.tools.cleaning}`,
+      label: <a href="/cleaning">{languages[lang].menu.tools.cleaning}</a>,
       key: "3",
     },
     {
-      label: `${languages[lang].menu.tools.paint}`,
+      label: <a href="/paint">{languages[lang].menu.tools.paint}</a>,
       key: "4",
     },
     {
-      label: `${languages[lang].menu.tools.handtools}`,
+      label: <a href="/handtools">{languages[lang].menu.tools.handtools}</a>,
       key: "5",
     },
   ];
@@ -164,7 +164,12 @@ export default function HeaderNavigation({ lang }) {
             items: home,
           }}
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              console.log("asd");
+            }}
+          >
             <Space>
               <Link className="navtext" to="/homeandgarden">
                 {languages[lang].menu.homeandgarden.main}

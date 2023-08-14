@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import data from "../../data/data";
 import { message } from "antd";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { languages } from "../../languages";
@@ -12,24 +12,8 @@ const Assortment = ({
   currencyVal,
   currencySign,
   lang,
+  render,
 }) => {
-  const [firebaseData, setFirebaseData] = useState([]);
-  useEffect(() => {
-    const unsub = onSnapshot(
-      collection(db, "carusell"),
-      (snapShot) => {
-        let list = [];
-        snapShot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
-        setFirebaseData(list);
-      },
-      (error) => {}
-    );
-    return () => {
-      unsub();
-    };
-  }, []);
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -59,19 +43,45 @@ const Assortment = ({
     const QTY = JSON.parse(localStorage.getItem("basket")).length;
     onBasketQuantityChange(QTY);
   };
-  const wholeAssortment = data;
+
+  const [firebaseData, setFirebaseData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, render));
+        querySnapshot.forEach((doc) => {
+          list.push(doc.data());
+        });
+        setFirebaseData(list);
+      } catch (err) {}
+    };
+    fetchData();
+  }, []);
   return (
     <Outer>
       <CardContainer>
-        {wholeAssortment.map((data, index) => (
-          <Card key={data.id}>
+        {firebaseData.map((data, index) => (
+          <Card key={index}>
             <div
               className="img"
               style={{ backgroundImage: `URL(${data.img})` }}
             />
             <div className="desc">
-              <p className="name">{data.name[lang]}</p>
-              <p className="spec">{data.dsc[lang]}</p>
+              <p className="name">
+                {lang === "en"
+                  ? data.nameEn
+                  : lang === "ru"
+                  ? data.nameRus
+                  : data.nameGeo}
+              </p>
+              <p className="spec">
+                {lang === "en"
+                  ? data.dscEn
+                  : lang === "ru"
+                  ? data.dscRus
+                  : data.dscGeo}
+              </p>
               <p className="pricee">
                 {Math.ceil((data.dailyprice * currencyVal) / 2)}
                 {currencySign} - {languages[lang].from}

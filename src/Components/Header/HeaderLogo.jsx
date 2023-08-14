@@ -8,7 +8,8 @@ import { Modal } from "antd";
 import { Image } from "antd";
 import { InputNumber } from "antd";
 import { Avatar, Badge } from "antd";
-const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
+import { languages } from "../../languages";
+const HeaderLogo = ({ onBasketQuantityChange2, badge, lang }) => {
   const [days, setDays] = useState(3);
   const countPrice = (value) => {
     setDays(value);
@@ -110,7 +111,13 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge }) => {
             <Basket key={index}>
               <div className="imgcont">
                 <Image preview={false} width={80} height={80} src={data.img} />
-                <p>{data.name.ka}</p>
+                <p>
+                  {lang === "en"
+                    ? data.nameEn
+                    : lang === "ru"
+                    ? data.nameRus
+                    : data.nameGeo}
+                </p>
               </div>
               <p className="daily price">{data.dailyprice} ლარი</p>
               <p className="total price">{days * data.dailyprice} ლარი</p>

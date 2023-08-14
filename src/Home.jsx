@@ -62,6 +62,7 @@ function App() {
       <HeaderLogo
         badge={basketQuantity}
         onBasketQuantityChange2={handleBasketQuantityChange2}
+        lang={language}
       />
       <HeaderNavigation lang={language} />
       <HeaderSlider />
@@ -73,6 +74,7 @@ function App() {
       />
       <SectionHeader>{languages[language].allproducts}</SectionHeader>
       <Assortment
+        render={"all-products"}
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}

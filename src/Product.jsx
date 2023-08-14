@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import HeaderStrip from "./Components/Header/HeaderStrip";
 import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";
 import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
-import { Link } from "react-router-dom";
 import "./App.css";
 function App(props) {
+  const { category, categoryID } = useParams();
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
     getLang ? JSON.parse(getLang) : "ka"
@@ -45,11 +46,6 @@ function App(props) {
   useEffect(() => {
     setBasketQuantity(basketQuantity2);
   }, [basketQuantity2]);
-  const products = [
-    { id: "electric", name: "Product 1" },
-    { id: 2, name: "Product 2" },
-    { id: 3, name: "Product 3" },
-  ];
   return (
     <>
       <HeaderStrip
@@ -63,20 +59,8 @@ function App(props) {
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
       <HeaderNavigation lang={language} />
-
-      <div>
-        <h1>Product List</h1>
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              <Link to={`/product/${product.id}`}>{product.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {props.products}
       <Assortment
+        render={category}
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}

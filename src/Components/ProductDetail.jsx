@@ -4,9 +4,6 @@ import { useParams } from 'react-router-dom';
 const ProductDetail = () => {
   const { productId } = useParams();
 
-  // Fetch product details based on productId
-  // You can use this ID to fetch data from an API or some other data source
-
   const product = {
     id: productId,
     name: `Product ${productId}`,

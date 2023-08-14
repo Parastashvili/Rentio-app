@@ -64,7 +64,7 @@ function App() {
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
       <HeaderNavigation lang={language} />
-      <HeaderSlider />
+      {/* <HeaderSlider />
       <SectionHeader>{languages[language].mostwanted}</SectionHeader>
       <MostWanted
         lang={language}
@@ -85,7 +85,7 @@ function App() {
         currencySign={currencySign}
       />
       <Brands lang={language} />
-      <Footer basketQuantity2={basketQuantity2} />
+      <Footer basketQuantity2={basketQuantity2} /> */}
     </>
   );
 }

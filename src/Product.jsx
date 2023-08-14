@@ -4,6 +4,7 @@ import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";
 import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
+import { Link } from "react-router-dom";
 import "./App.css";
 function App(props) {
   const getLang = localStorage.getItem("language");
@@ -44,6 +45,11 @@ function App(props) {
   useEffect(() => {
     setBasketQuantity(basketQuantity2);
   }, [basketQuantity2]);
+  const products = [
+    { id: 1, name: "Product 1" },
+    { id: 2, name: "Product 2" },
+    { id: 3, name: "Product 3" },
+  ];
   return (
     <>
       <HeaderStrip
@@ -57,6 +63,18 @@ function App(props) {
         onBasketQuantityChange2={handleBasketQuantityChange2}
       />
       <HeaderNavigation lang={language} />
+
+      <div>
+        <h1>Product List</h1>
+        <ul>
+          {products.map((product) => (
+            <li key={product.id}>
+              <Link to={`/product/${product.id}`}>{product.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {props.products}
       <Assortment
         lang={language}

@@ -84,23 +84,29 @@ export default function HeaderNavigation({ lang }) {
   };
   const tools = [
     {
-      label: <a href="/electric">{languages[lang].menu.tools.electric}</a>,
+      label: (
+        <a href="/tools/electric">{languages[lang].menu.tools.electric}</a>
+      ),
       key: "1",
     },
     {
-      label: <a href="/build">{languages[lang].menu.tools.build}</a>,
+      label: <a href="/tools/build">{languages[lang].menu.tools.build}</a>,
       key: "2",
     },
     {
-      label: <a href="/cleaning">{languages[lang].menu.tools.cleaning}</a>,
+      label: (
+        <a href="/tools/cleaning">{languages[lang].menu.tools.cleaning}</a>
+      ),
       key: "3",
     },
     {
-      label: <a href="/paint">{languages[lang].menu.tools.paint}</a>,
+      label: <a href="/tools/paint">{languages[lang].menu.tools.paint}</a>,
       key: "4",
     },
     {
-      label: <a href="/handtools">{languages[lang].menu.tools.handtools}</a>,
+      label: (
+        <a href="/tools/handtools">{languages[lang].menu.tools.handtools}</a>
+      ),
       key: "5",
     },
   ];

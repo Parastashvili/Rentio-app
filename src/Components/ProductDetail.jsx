@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const product = {
     id: productId,
     name: `Product ${productId}`,
-    description: 'Product description goes here...',
+    description: 'Product description goes here',
   };
 
   return (

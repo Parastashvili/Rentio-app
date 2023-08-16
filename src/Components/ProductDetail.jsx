@@ -9,7 +9,6 @@ const ProductDetail = () => {
     name: `Product ${productId}`,
     description: 'Product description goes here',
   };
-
   return (
     <div>
       <h1>Product Detail</h1>

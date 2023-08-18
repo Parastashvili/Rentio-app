@@ -57,6 +57,7 @@ const Assortment = ({
       } catch (err) {}
     };
     fetchData();
+    console.log(firebaseData);
   }, []);
   return (
     <Outer>

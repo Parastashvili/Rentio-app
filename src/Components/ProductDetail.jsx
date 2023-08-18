@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const product = {
     id: productId,
     name: `Product ${productId}`,
-    description: 'Product description goes here',
+    description: "Product description goes here",
   };
   return (
     <div>

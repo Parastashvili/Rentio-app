@@ -1,7 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import data from "../../data/data";
 import { message } from "antd";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";

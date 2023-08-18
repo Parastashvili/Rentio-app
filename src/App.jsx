@@ -4,7 +4,6 @@ import Terms from "./Terms";
 import Contact from "./Contact";
 import Product from "./Product";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SS from "./SS";
 
 export default function App() {
   return (

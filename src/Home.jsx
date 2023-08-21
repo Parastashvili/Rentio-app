@@ -74,7 +74,7 @@ function App() {
       />
       <SectionHeader>{languages[language].allproducts}</SectionHeader>
       <Assortment
-        render={"all-products"}
+        render={"allProducts"}
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}

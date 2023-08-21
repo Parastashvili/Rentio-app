@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Routes, useParams } from "react-router-dom";
 import HeaderStrip from "./Components/Header/HeaderStrip";
 import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";

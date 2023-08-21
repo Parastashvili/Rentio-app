@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { languages } from "../../languages";
+import { Space, Spin } from "antd";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
@@ -37,8 +38,6 @@ const Assortment = ({
       success();
     }
 
-
-    
     basket.push(data);
     const updatedBasketJSON = JSON.stringify(basket);
     localStorage.setItem("basket", updatedBasketJSON);
@@ -62,6 +61,7 @@ const Assortment = ({
   }, []);
   return (
     <Outer>
+      <Spin size="large" className="changer" />
       <CardContainer>
         {firebaseData.map((data, index) => (
           <Card key={index}>
@@ -106,6 +106,9 @@ const Outer = styled.div`
   max-width: 1200px;
   margin: auto auto 100px auto;
   overflow: hidden;
+  .ant-spin-dot-item {
+    background-color: #febd18;
+  }
 `;
 const CardContainer = styled.div`
   display: grid;

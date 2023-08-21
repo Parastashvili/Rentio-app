@@ -105,7 +105,7 @@ export default function HeaderNavigation({ lang }) {
     },
     {
       label: (
-        <a href="/tools/handtools">{languages[lang].menu.tools.handtools}</a>
+        <a href="/tools/carusell">{languages[lang].menu.tools.handtools}</a>
       ),
       key: "5",
     },

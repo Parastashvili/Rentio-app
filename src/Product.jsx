@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Route, Routes, useParams } from "react-router-dom";
 import HeaderStrip from "./Components/Header/HeaderStrip";
 import HeaderLogo from "./Components/Header/HeaderLogo";
 import HeaderNavigation from "./Components/Header/HeaderNavigation";
@@ -7,7 +7,6 @@ import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
 function App(props) {
-  const { categoryID } = useParams();
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
     getLang ? JSON.parse(getLang) : "ka"
@@ -60,7 +59,7 @@ function App(props) {
       />
       <HeaderNavigation lang={language} />
       <Assortment
-        render={categoryID}
+        render={props.render}
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}

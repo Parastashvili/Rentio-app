@@ -162,7 +162,7 @@ export default function HeaderNavigation({ lang }) {
       key: "4",
     },
   ];
-  const onClick = (e) => {
+  const onClickNav = (e) => {
     navigate(e.key);
   };
   return (
@@ -176,11 +176,16 @@ export default function HeaderNavigation({ lang }) {
             items: tools,
           }}
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/tools");
+            }}
+          >
             <Space>
-              <Link className="navtext" to="/tools">
+              <p className="navtext" to="/tools">
                 {languages[lang].menu.tools.main}
-              </Link>
+              </p>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -193,7 +198,7 @@ export default function HeaderNavigation({ lang }) {
           <a
             onClick={(e) => {
               e.preventDefault();
-              console.log("asd");
+              console.log("home");
             }}
           >
             <Space>
@@ -211,7 +216,7 @@ export default function HeaderNavigation({ lang }) {
         >
           <a onClick={(e) => e.preventDefault()}>
             <Space>
-              <Link className="navtext" to="/car-rental">
+              <Link className="navtext" to="/cars">
                 {languages[lang].menu.auto.main}
               </Link>
               <DownOutlined style={{ color: "#ffffff" }} />
@@ -232,7 +237,7 @@ export default function HeaderNavigation({ lang }) {
         open={open}
       >
         <Menu
-          onClick={onClick}
+          onClick={onClickNav}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}

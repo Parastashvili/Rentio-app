@@ -7,7 +7,7 @@ import Assortment from "./Components/Body/Assortment";
 import Footer from "./Components/Body/Footer";
 import "./App.css";
 function App(props) {
-  const { category, categoryID } = useParams();
+  const { categoryID } = useParams();
   const getLang = localStorage.getItem("language");
   const [language, setLanguage] = useState(
     getLang ? JSON.parse(getLang) : "ka"

@@ -112,34 +112,54 @@ export default function HeaderNavigation({ lang }) {
   ];
   const cars = [
     {
-      label: `${languages[lang].menu.auto.manipulator}`,
+      label: (
+        <a href="/cars/manipulator">{languages[lang].menu.auto.manipulator}</a>
+      ),
       key: "1",
     },
     {
-      label: `${languages[lang].menu.auto.tvitmcleli}`,
+      label: (
+        <a href="/cars/tvitmcleli">{languages[lang].menu.auto.tvitmcleli}</a>
+      ),
       key: "2",
     },
     {
-      label: `${languages[lang].menu.auto.trailer}`,
+      label: <a href="/cars/trailer">{languages[lang].menu.auto.trailer}</a>,
       key: "3",
     },
   ];
   const home = [
     {
-      label: `${languages[lang].menu.homeandgarden.garden}`,
+      label: (
+        <a href="/homeandgarden/garden">
+          {languages[lang].menu.homeandgarden.garden}
+        </a>
+      ),
       key: "1",
     },
     {
-      label: `${languages[lang].menu.homeandgarden.water}`,
+      label: (
+        <a href="/homeandgarden/water">
+          {languages[lang].menu.homeandgarden.water}
+        </a>
+      ),
       key: "2",
     },
     {
-      label: `${languages[lang].menu.homeandgarden.box}`,
+      label: (
+        <a href="/homeandgarden/box">
+          {languages[lang].menu.homeandgarden.box}
+        </a>
+      ),
       key: "3",
     },
     {
-      label: `${languages[lang].menu.homeandgarden.gardenfurn}`,
-      key: "3",
+      label: (
+        <a href="/homeandgarden/gardenfurn">
+          {languages[lang].menu.homeandgarden.gardenfurn}
+        </a>
+      ),
+      key: "4",
     },
   ];
   const onClick = (e) => {

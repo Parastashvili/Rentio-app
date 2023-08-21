@@ -60,7 +60,7 @@ function App(props) {
       />
       <HeaderNavigation lang={language} />
       <Assortment
-        render={category}
+        render={categoryID}
         lang={language}
         onBasketQuantityChange={handleBasketQuantityChange}
         currencyVal={currency}

@@ -6,7 +6,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { languages } from "../../languages";
-import { Space, Spin } from "antd";
+import { Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
@@ -14,6 +15,7 @@ const Assortment = ({
   lang,
   render,
 }) => {
+  const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
@@ -58,45 +60,54 @@ const Assortment = ({
       } catch (err) {}
     };
     fetchData();
+    const emtpy = () => {};
   }, []);
+  setTimeout(() => {
+    console.log(firebaseData.length);
+  }, 10000);
   return (
     <Outer>
-      <Spin size="large" className="changer" />
-      <CardContainer>
-        {firebaseData.map((data, index) => (
-          <Card key={index}>
-            <div
-              className="img"
-              style={{ backgroundImage: `URL(${data.img})` }}
-            />
-            <div className="desc">
-              <p className="name">
-                {lang === "en"
-                  ? data.nameEn
-                  : lang === "ru"
-                  ? data.nameRus
-                  : data.nameGeo}
-              </p>
-              <p className="spec">
-                {lang === "en"
-                  ? data.dscEn
-                  : lang === "ru"
-                  ? data.dscRus
-                  : data.dscGeo}
-              </p>
-              <p className="pricee">
-                {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                {currencySign} - {languages[lang].from}
-              </p>
-              <button className="btn" onClick={() => addBasket(data)}>
-                <ShoppingCartOutlined />
-                {languages[lang].add}
-              </button>
-              {contextHolder}
-            </div>
-          </Card>
-        ))}
-      </CardContainer>
+      {firebaseData.length === 0 ? (
+        <Loader>
+          <Spin size="large" />
+        </Loader>
+      ) : (
+        <CardContainer>
+          {firebaseData.map((data, index) => (
+            <Card key={index}>
+              <div
+                className="img"
+                style={{ backgroundImage: `URL(${data.img})` }}
+              />
+              <div className="desc">
+                <p className="name">
+                  {lang === "en"
+                    ? data.nameEn
+                    : lang === "ru"
+                    ? data.nameRus
+                    : data.nameGeo}
+                </p>
+                <p className="spec">
+                  {lang === "en"
+                    ? data.dscEn
+                    : lang === "ru"
+                    ? data.dscRus
+                    : data.dscGeo}
+                </p>
+                <p className="pricee">
+                  {Math.ceil((data.dailyprice * currencyVal) / 2)}
+                  {currencySign} - {languages[lang].from}
+                </p>
+                <button className="btn" onClick={() => addBasket(data)}>
+                  <ShoppingCartOutlined />
+                  {languages[lang].add}
+                </button>
+                {contextHolder}
+              </div>
+            </Card>
+          ))}
+        </CardContainer>
+      )}
     </Outer>
   );
 };
@@ -106,9 +117,16 @@ const Outer = styled.div`
   max-width: 1200px;
   margin: auto auto 100px auto;
   overflow: hidden;
+`;
+const Loader = styled.div`
   .ant-spin-dot-item {
     background-color: #febd18;
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  scale: 1.5;
 `;
 const CardContainer = styled.div`
   display: grid;

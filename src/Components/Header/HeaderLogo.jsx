@@ -8,7 +8,6 @@ import { Modal } from "antd";
 import { Image } from "antd";
 import { InputNumber } from "antd";
 import { Avatar, Badge } from "antd";
-import { languages } from "../../languages";
 import { Link } from "react-router-dom";
 const HeaderLogo = ({ onBasketQuantityChange2, badge, lang }) => {
   const [days, setDays] = useState(3);

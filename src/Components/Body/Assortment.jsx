@@ -7,7 +7,6 @@ import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { languages } from "../../languages";
 import { Spin } from "antd";
-import { useNavigate } from "react-router-dom";
 const Assortment = ({
   onBasketQuantityChange,
   currencyVal,
@@ -15,7 +14,6 @@ const Assortment = ({
   lang,
   render,
 }) => {
-  const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({

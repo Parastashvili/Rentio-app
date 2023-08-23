@@ -13,6 +13,7 @@ import {
   CarOutlined,
   ContactsOutlined,
   AuditOutlined,
+  SmileOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
@@ -70,7 +71,7 @@ export default function HeaderNavigation({ lang }) {
     getItem(`${languages[lang].menu.auto.main}`, "/cars", <CarOutlined />, [
       getItem(`${languages[lang].menu.auto.manipulator}`, "/cars/manipulator"),
       getItem(`${languages[lang].menu.auto.tvitmcleli}`, "/cars/tvitmcleli"),
-      getItem(`${languages[lang].menu.auto.trailer}`, "/cars/carusell"),
+      getItem(`${languages[lang].menu.auto.trailer}`, "/cars/trailer"),
     ]),
     getItem(`${languages[lang].menu.policy}`, "/terms", <AuditOutlined />),
     getItem(
@@ -79,11 +80,8 @@ export default function HeaderNavigation({ lang }) {
       <ContactsOutlined />
     ),
   ];
-  const oner = () => {
-    console.log("zezvaa");
-  };
   const rootSubmenuKeys = ["sub2", "sub3", "sub4"];
-  const [openKeys, setOpenKeys] = useState(["sub1"]);
+  const [openKeys, setOpenKeys] = useState([]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -92,6 +90,7 @@ export default function HeaderNavigation({ lang }) {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+  const [pager, setPager] = useState();
   const tools = [
     {
       label: (
@@ -134,7 +133,7 @@ export default function HeaderNavigation({ lang }) {
       key: "2",
     },
     {
-      label: <a href="/cars/carusell">{languages[lang].menu.auto.trailer}</a>,
+      label: <a href="/cars/trailer">{languages[lang].menu.auto.trailer}</a>,
       key: "3",
     },
   ];
@@ -149,7 +148,7 @@ export default function HeaderNavigation({ lang }) {
     },
     {
       label: (
-        <a href="/homeandgarden/carusell">
+        <a href="/homeandgarden/water">
           {languages[lang].menu.homeandgarden.water}
         </a>
       ),
@@ -174,7 +173,6 @@ export default function HeaderNavigation({ lang }) {
   ];
   const onClickNav = (e) => {
     navigate(e.key);
-    console.log(e.key)
   };
   return (
     <Nav>
@@ -268,7 +266,6 @@ export default function HeaderNavigation({ lang }) {
           type="primary"
           onToggle={showDrawer}
           toggled={open}
-          onClick={oner}
         />
       </Ham>
     </Nav>

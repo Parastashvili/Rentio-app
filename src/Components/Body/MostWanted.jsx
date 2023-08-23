@@ -23,25 +23,6 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
       } catch (error) {}
     };
     fetchData();
-    // Live update code
-    // const unsub = onSnapshot(
-    //   collection(db, "carusell"),
-    //   (snapShot) => {
-    //     let list = [];
-    //     snapShot.docs.forEach((doc) => {
-    //       list.push({ id: doc.id, ...doc.data() });
-    //     });
-    //     setFirebaseData(list);
-    //     console.log(list[0].name[ka]);
-    //     console.log(datae);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-    // return () => {
-    //   unsub();
-    // };
   }, []);
   return (
     <Outer>

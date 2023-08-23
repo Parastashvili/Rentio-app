@@ -8,6 +8,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import { languages } from "../../languages";
+import { Spin } from "antd";
 const MostWanted = ({ currencyVal, currencySign, lang }) => {
   const [firebaseData, setFirebaseData] = useState([]);
   useEffect(() => {
@@ -52,47 +53,55 @@ const MostWanted = ({ currencyVal, currencySign, lang }) => {
           perPage: 1,
         }}
       >
-        {firebaseData.map((data, index) => (
-          <SplideSlide key={index}>
-            <SlideInner>
-              <div className="imgOut">
-                <Image
-                  width={180}
-                  height={180}
-                  src={data.img}
-                  style={{ scale: "0.7" }}
-                />
-              </div>
-              <Dsc>
-                <p className="itemName">
-                  {lang === "en"
-                    ? data.nameEn
-                    : lang === "ru"
-                    ? data.nameRus
-                    : data.nameGeo}
-                </p>
-                <p>{data.id}</p>
-                <p className="itemDsc">
-                  {lang === "en"
-                    ? data.dscEn
-                    : lang === "ru"
-                    ? data.dscRus
-                    : data.dscGeo}
-                </p>
-                <div className="pricecont">
-                  <p className="itemPrice">
-                    {languages[lang].price}
-                    {": "}
-                    {Math.ceil((data.dailyprice * currencyVal) / 2)}
-                    {currencySign} {languages[lang].from} {"- "}
-                    {Math.ceil(data.dailyprice * currencyVal)}
-                    {currencySign} {languages[lang].to}
-                  </p>
-                </div>
-              </Dsc>
-            </SlideInner>
-          </SplideSlide>
-        ))}
+        {firebaseData.length === 0 ? (
+          <Loader>
+            <Spin size="large" />
+          </Loader>
+        ) : (
+          <>
+            {firebaseData.map((data, index) => (
+              <SplideSlide key={index}>
+                <SlideInner>
+                  <div className="imgOut">
+                    <Image
+                      width={180}
+                      height={180}
+                      src={data.img}
+                      style={{ scale: "0.7" }}
+                    />
+                  </div>
+                  <Dsc>
+                    <p className="itemName">
+                      {lang === "en"
+                        ? data.nameEn
+                        : lang === "ru"
+                        ? data.nameRus
+                        : data.nameGeo}
+                    </p>
+                    <p>{data.id}</p>
+                    <p className="itemDsc">
+                      {lang === "en"
+                        ? data.dscEn
+                        : lang === "ru"
+                        ? data.dscRus
+                        : data.dscGeo}
+                    </p>
+                    <div className="pricecont">
+                      <p className="itemPrice">
+                        {languages[lang].price}
+                        {": "}
+                        {Math.ceil((data.dailyprice * currencyVal) / 2)}
+                        {currencySign} {languages[lang].from} {"- "}
+                        {Math.ceil(data.dailyprice * currencyVal)}
+                        {currencySign} {languages[lang].to}
+                      </p>
+                    </div>
+                  </Dsc>
+                </SlideInner>
+              </SplideSlide>
+            ))}
+          </>
+        )}
       </Splide>
     </Outer>
   );
@@ -102,6 +111,17 @@ const Outer = styled.div`
   width: 100%;
   max-width: 1300px;
   margin: auto;
+`;
+const Loader = styled.div`
+  .ant-spin-dot-item {
+    background-color: #febd18;
+  }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  scale: 1;
 `;
 const SlideInner = styled.div`
   display: flex;

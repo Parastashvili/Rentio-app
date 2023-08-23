@@ -60,11 +60,7 @@ const Assortment = ({
       } catch (err) {}
     };
     fetchData();
-    const emtpy = () => {};
   }, []);
-  setTimeout(() => {
-    console.log(firebaseData.length);
-  }, 10000);
   return (
     <Outer>
       {firebaseData.length === 0 ? (

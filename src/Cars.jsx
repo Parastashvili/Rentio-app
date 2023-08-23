@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Subcategory from "./Subcategory";
-import NotFound from "./NotFound"; // Your 404 component
+import NotFound from "./NotFound";
 import Product from "./Product";
 
 const Tools = () => {

@@ -13,7 +13,6 @@ import {
   CarOutlined,
   ContactsOutlined,
   AuditOutlined,
-  SmileOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Menu } from "antd";
@@ -90,7 +89,6 @@ export default function HeaderNavigation({ lang }) {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
-  const [pager, setPager] = useState();
   const tools = [
     {
       label: (
@@ -173,6 +171,7 @@ export default function HeaderNavigation({ lang }) {
   ];
   const onClickNav = (e) => {
     navigate(e.key);
+    location.reload();
   };
   return (
     <Nav>
@@ -230,10 +229,10 @@ export default function HeaderNavigation({ lang }) {
             </Space>
           </a>
         </Dropdown>
-        <Link className="navtext" to="terms">
+        <Link className="navtext" to="/terms">
           {languages[lang].menu.policy}
         </Link>
-        <Link className="navtext" to="contact">
+        <Link className="navtext" to="/contact">
           {languages[lang].menu.contact}
         </Link>
       </div>

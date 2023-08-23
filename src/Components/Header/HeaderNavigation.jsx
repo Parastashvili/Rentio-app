@@ -38,39 +38,47 @@ export default function HeaderNavigation({ lang }) {
   }
   const ham = [
     getItem(`${languages[lang].menu.home}`, "/", <RollbackOutlined />),
-    getItem(`${languages[lang].menu.tools.main}`, "tools", <ToolOutlined />, [
-      getItem(`${languages[lang].menu.tools.electric}`, "electric"),
-      getItem(`${languages[lang].menu.tools.build}`, "build"),
-      getItem(`${languages[lang].menu.tools.cleaning}`, "cleaning"),
-      getItem(`${languages[lang].menu.tools.paint}`, "paint"),
-      getItem(`${languages[lang].menu.tools.handtools}`, "handtools"),
+    getItem(`${languages[lang].menu.tools.main}`, "/tools", <ToolOutlined />, [
+      getItem(`${languages[lang].menu.tools.electric}`, "/tools/electric"),
+      getItem(`${languages[lang].menu.tools.build}`, "/tools/build"),
+      getItem(`${languages[lang].menu.tools.cleaning}`, "/tools/cleaning"),
+      getItem(`${languages[lang].menu.tools.paint}`, "/tools/paint"),
+      getItem(`${languages[lang].menu.tools.handtools}`, "/tools/handtools"),
     ]),
     getItem(
       `${languages[lang].menu.homeandgarden.main}`,
-      "car-rental",
+      "/homeandgarden",
       <HomeOutlined />,
       [
-        getItem(`${languages[lang].menu.homeandgarden.garden}`, "garden"),
-        getItem(`${languages[lang].menu.homeandgarden.water}`, "water"),
-        getItem(`${languages[lang].menu.homeandgarden.box}`, "box"),
+        getItem(
+          `${languages[lang].menu.homeandgarden.garden}`,
+          "/homeandgarden/garden"
+        ),
+        getItem(
+          `${languages[lang].menu.homeandgarden.water}`,
+          "/homeandgarden/water"
+        ),
+        getItem(
+          `${languages[lang].menu.homeandgarden.box}`,
+          "/homeandgarden/box"
+        ),
         getItem(
           `${languages[lang].menu.homeandgarden.gardenfurn}`,
-          "gardenfurn"
+          "/homeandgarden/gardenfurn"
         ),
       ]
     ),
+    getItem(`${languages[lang].menu.auto.main}`, "/cars", <CarOutlined />, [
+      getItem(`${languages[lang].menu.auto.manipulator}`, "/cars/manipulator"),
+      getItem(`${languages[lang].menu.auto.tvitmcleli}`, "/cars/tvitmcleli"),
+      getItem(`${languages[lang].menu.auto.trailer}`, "/cars/trailer"),
+    ]),
+    getItem(`${languages[lang].menu.policy}`, "/terms", <AuditOutlined />),
     getItem(
-      `${languages[lang].menu.auto.main}`,
-      "homeandgarden",
-      <CarOutlined />,
-      [
-        getItem(`${languages[lang].menu.auto.manipulator}`, "manipulator"),
-        getItem(`${languages[lang].menu.auto.tvitmcleli}`, "tvitmcleli"),
-        getItem(`${languages[lang].menu.auto.trailer}`, "trailer"),
-      ]
+      `${languages[lang].menu.contact}`,
+      "/contact",
+      <ContactsOutlined />
     ),
-    getItem(`${languages[lang].menu.policy}`, "terms", <AuditOutlined />),
-    getItem(`${languages[lang].menu.contact}`, "contact", <ContactsOutlined />),
   ];
   const rootSubmenuKeys = ["sub2", "sub3", "sub4"];
   const [openKeys, setOpenKeys] = useState(["sub1"]);
@@ -179,13 +187,10 @@ export default function HeaderNavigation({ lang }) {
           <a
             onClick={(e) => {
               e.preventDefault();
-              navigate("/tools");
             }}
           >
             <Space>
-              <p className="navtext" to="/tools">
-                {languages[lang].menu.tools.main}
-              </p>
+              <p className="navtext">{languages[lang].menu.tools.main}</p>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>
@@ -198,7 +203,6 @@ export default function HeaderNavigation({ lang }) {
           <a
             onClick={(e) => {
               e.preventDefault();
-              console.log("home");
             }}
           >
             <Space>
@@ -223,10 +227,10 @@ export default function HeaderNavigation({ lang }) {
             </Space>
           </a>
         </Dropdown>
-        <Link className="navtext" to="/terms">
+        <Link className="navtext" to="terms">
           {languages[lang].menu.policy}
         </Link>
-        <Link className="navtext" to="/contact">
+        <Link className="navtext" to="contact">
           {languages[lang].menu.contact}
         </Link>
       </div>

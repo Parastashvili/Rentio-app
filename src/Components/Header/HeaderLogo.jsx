@@ -9,6 +9,7 @@ import { Image } from "antd";
 import { InputNumber } from "antd";
 import { Avatar, Badge } from "antd";
 import { languages } from "../../languages";
+import { Link } from "react-router-dom";
 const HeaderLogo = ({ onBasketQuantityChange2, badge, lang }) => {
   const [days, setDays] = useState(3);
   const countPrice = (value) => {
@@ -56,7 +57,9 @@ const HeaderLogo = ({ onBasketQuantityChange2, badge, lang }) => {
   }, []);
   return (
     <Logo>
-      <img className="logo" src={logo} alt="site logo rentio" />
+      <Link to="/">
+        <img className="logo" src={logo} alt="site logo rentio" />
+      </Link>
       <div className="user">
         <Search
           placeholder="input search text"

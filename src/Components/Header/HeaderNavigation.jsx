@@ -190,7 +190,9 @@ export default function HeaderNavigation({ lang }) {
             }}
           >
             <Space>
-              <p className="navtext">{languages[lang].menu.tools.main}</p>
+              <Link className="navtext" to="/tools">
+                {languages[lang].menu.tools.main}
+              </Link>
               <DownOutlined style={{ color: "#ffffff" }} />
             </Space>
           </a>

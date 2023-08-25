@@ -37,7 +37,6 @@ const Assortment = ({
     } else {
       success();
     }
-
     basket.push(data);
     const updatedBasketJSON = JSON.stringify(basket);
     localStorage.setItem("basket", updatedBasketJSON);

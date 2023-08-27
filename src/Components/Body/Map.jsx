@@ -13,13 +13,10 @@ const Map = () => {
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-
   const center = useMemo(() => ({ lat: 41.67994, lng: 44.98073 }), []);
-
   const onLoad = (marker) => {
     console.log("marker: ", marker);
   };
-
   const options = {
     streetViewControl: false,
   };

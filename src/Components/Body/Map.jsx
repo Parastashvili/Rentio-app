@@ -20,14 +20,12 @@ const Map = () => {
   const options = {
     streetViewControl: false,
   };
-
   if (!isLoaded)
     return (
       <Loader>
         <Spin size="large" />
       </Loader>
     );
-
   return (
     <GoogleMap
       mapContainerStyle={containerStyle}

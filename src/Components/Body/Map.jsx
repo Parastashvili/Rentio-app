@@ -38,6 +38,7 @@ const Map = () => {
     </GoogleMap>
   );
 };
+
 export default Map;
 const Loader = styled.div`
   .ant-spin-dot-item {

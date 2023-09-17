@@ -282,6 +282,9 @@ const Nav = styled.div`
       display: none;
     }
   }
+
+
+  
   .navtext {
     color: #ffffff;
     font-family: "Noto Sans Georgian", sans-serif;

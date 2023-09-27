@@ -27,8 +27,6 @@ const Assortment = ({
       content: "პროდუქტი უკვე კალათაშია",
     });
   };
-
-  
   const addBasket = (data) => {
     const existingBasket = localStorage.getItem("basket");
     const basket = existingBasket ? JSON.parse(existingBasket) : [];

@@ -21,6 +21,8 @@ const Assortment = ({
       content: "პროდუქტი დამატებულია",
     });
   };
+
+  
   const error = () => {
     messageApi.open({
       type: "warning",
